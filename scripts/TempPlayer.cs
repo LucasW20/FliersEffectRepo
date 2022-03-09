@@ -9,16 +9,21 @@ using System;
  * @version 3-9-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private const float GRAVITY = 200.0f;
-	private int walkSpeed;
+	[Export] public float GRAVITY = 750;
+	[Export] public float JUMP = -500;
+	[Export] public int walkSpeed = 400;
+	[Export] public int acc = 1;
 	private bool TimeTraveled;
 	private Vector2 velocity;
 	private Node2D myNode;
+	[Export] public float maxSpeed;
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		walkSpeed = 200;
-		TimeTraveled = false;
+		walkSpeed = 20;
+		maxSpeed = 400f;
+		TimeTraveled = false;		
 		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
 	}
@@ -26,16 +31,39 @@ public class TempPlayer : KinematicBody2D {
 	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
 		//Vertical movement code. Apply gravity.
-		velocity.y += GRAVITY * delta;
+		if (!IsOnFloor()) { velocity.y += GRAVITY * delta; }
 
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			velocity.x = -walkSpeed;
+			if (velocity.x > -maxSpeed) { 
+				if (velocity.x > 0) { velocity.x *= -1; }
+				velocity.x = velocity.x - acc * walkSpeed;
+			}
 		} else if (Input.IsActionPressed("right")) {
-			velocity.x = walkSpeed;
+			if (velocity.x < maxSpeed) {
+				if (velocity.x < 0) { velocity.x *= -1; }
+				velocity.x = velocity.x + acc * walkSpeed;
+			}
 		} else {
 			velocity.x = 0;
 		}
+
+		//jumping input
+		if (Input.IsActionPressed("jump")) {
+			//Console.WriteLine("Pressed Jump");
+			if (IsOnFloor()) {
+				//Console.WriteLine("Jumped");
+				velocity.y = JUMP;
+            }
+        }
+
+		//down input
+		if (Input.IsActionPressed("down")) {
+			if (!IsOnFloor()) { //if the player is in the air then they can press 'S' to shoot down at the cost of some horizontal movement
+				velocity.x -= velocity.x * 0.25f;
+				velocity.y = 500;
+            }
+        }
 
 		//time travel input
 		if (Input.IsActionJustPressed("timetravel")) {
@@ -49,6 +77,7 @@ public class TempPlayer : KinematicBody2D {
 			}
 		}
 
+		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		//actually move the player
 		MoveAndSlide(velocity, new Vector2(0, -1));
 	}

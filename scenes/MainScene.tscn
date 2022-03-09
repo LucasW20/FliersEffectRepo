@@ -7,13 +7,14 @@
 [node name="Main" type="Node2D"]
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 622, 226 )
+position = Vector2( 90, 247 )
+JUMP = -375.0
 
 [node name="TempPlatform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
 
 [node name="TestingTimeBox" parent="." instance=ExtResource( 3 )]
-position = Vector2( 443.649, 236 )
+position = Vector2( 849, 250 )
 
 [node name="TempPlatform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 617, 83 )
+position = Vector2( 183, 321 )
