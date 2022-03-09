@@ -14,36 +14,41 @@ public class TempPlayer : KinematicBody2D {
 		
 	}
 
-    [Export] public int speed = 200;
+	[Export] public int speed = 200;
+	//[Export] public int gravity = -90;
 
-    public Vector2 velocity = new Vector2();
+	public Vector2 velocity = new Vector2();
 
-    public void GetInput() {
-        velocity = new Vector2();
+	public void GetInput() {
+		velocity = new Vector2();
+		
 
-        if (Input.IsActionPressed("right"))
-            velocity.x += 2;
+		if (Input.IsActionPressed("right"))
+			velocity.x += 2;
 
-        if (Input.IsActionPressed("left"))
-            velocity.x -= 2;
+		if (Input.IsActionPressed("left"))
+			velocity.x -= 2;
 
-        if (Input.IsActionPressed("down"))
-            velocity.y += 2;
+		if (Input.IsActionPressed("down"))
+			velocity.y += 2;
 
-        if (Input.IsActionPressed("up"))
-            velocity.y -= 2;
+		if (Input.IsActionPressed("up"))
+			velocity.y -= 2;
+		
 
-        velocity = velocity.Normalized() * speed;
-    }
+			
 
-    public override void _PhysicsProcess(float delta) {
-        GetInput();
-        velocity = MoveAndSlide(velocity);
-    }
+		velocity = velocity.Normalized() * speed;
+	}
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+	public override void _PhysicsProcess(float delta) {
+		GetInput();
+		velocity = MoveAndSlide(velocity);
+	}
+
+	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+	//  public override void _Process(float delta)
+	//  {
+	//      
+	//  }
 }
