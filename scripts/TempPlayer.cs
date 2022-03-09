@@ -2,26 +2,31 @@ using Godot;
 using System;
 
 /***
- * Handles the first iteration of player movement for Fliers Effect
+ * Handles the first iteration of player movement for Fliers Effect and the time travel
+ * @author Lucas_C_Wright
+ * @editor Jaden_Patten
+ * @start 3-7-2022
+ * @version 3-9-2022
  */
 public class TempPlayer : KinematicBody2D {
-	[Export] public int walkSpeed = 200;
-	private const float gravity = 200.0f;
+	private const float GRAVITY = 200.0f;
+	private int walkSpeed;
 	private bool TimeTraveled;
-	public Vector2 velocity = new Vector2();
-	Node2D myNode;
+	private Vector2 velocity;
+	private Node2D myNode;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
+		walkSpeed = 200;
 		TimeTraveled = false;
+		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
 	}
 
+	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
-		float walk = walkSpeed * (Input.GetActionStrength("right") - Input.GetActionStrength("left"));
-
 		//Vertical movement code. Apply gravity.
-		velocity.y += gravity * delta;
+		velocity.y += GRAVITY * delta;
 
 		//walking input
 		if (Input.IsActionPressed("left")) {
@@ -34,12 +39,12 @@ public class TempPlayer : KinematicBody2D {
 
 		//time travel input
 		if (Input.IsActionJustPressed("timetravel")) {
-			Console.WriteLine("Pressed/n");
+			//Console.WriteLine("Pressed/n");
 			if (TimeTraveled == false) { //if in the future then move to the past
-				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 200);
+				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 300);
 				TimeTraveled = true;
 			} else { //if in the past then move to the future
-				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 200);
+				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 300);
 				TimeTraveled = false;
 			}
 		}

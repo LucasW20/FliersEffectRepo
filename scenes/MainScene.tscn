@@ -14,3 +14,6 @@ position = Vector2( 618, 320 )
 
 [node name="TestingTimeBox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 443.649, 236 )
+
+[node name="TempPlatform2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 617, 83 )

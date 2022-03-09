@@ -1,6 +1,12 @@
 using Godot;
 using System;
 
+/***
+ * First iteration of the time travel mechanic. Moves the box. 
+ * @author Jaden_Patten
+ * @start 3-8-2022
+ * @version 3-9-2022
+ */
 public class TestingTimeBox : KinematicBody2D
 {
     // Declare member variables here. Examples:
