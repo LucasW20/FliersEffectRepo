@@ -40,14 +40,11 @@ public class TestingTimeBox : KinematicBody2D
                 TimeTraveled = false;
                 //Console.WriteLine("TimeT = ");
                 //Console.WriteLine(TimeTraveled);
-            }
-            
+            }   
         }
-      
     }
 
-    public override void _PhysicsProcess(float delta)
-    {
+    public override void _PhysicsProcess(float delta) {
         GetInput();
         BoxPos = MoveAndSlide(BoxPos);
     }

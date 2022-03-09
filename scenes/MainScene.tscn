@@ -7,10 +7,10 @@
 [node name="Main" type="Node2D"]
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 611, 123 )
+position = Vector2( 622, 226 )
 
 [node name="TempPlatform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
 
 [node name="TestingTimeBox" parent="." instance=ExtResource( 3 )]
-position = Vector2( 441, 236 )
+position = Vector2( 443.649, 236 )
