@@ -12,9 +12,10 @@ JUMP = -375.0
 
 [node name="TempPlatform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
+scale = Vector2( 10, 1 )
 
 [node name="TestingTimeBox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 849, 250 )
 
 [node name="TempPlatform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 183, 321 )
+position = Vector2( 615, 96 )
