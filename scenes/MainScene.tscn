@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TestingTimeBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Pause.cs" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, 247 )
-JUMP = -375.0
+
+[node name="FollowCam" type="Camera2D" parent="TempPlayer"]
+current = true
 
 [node name="TempPlatform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
@@ -19,3 +22,25 @@ position = Vector2( 849, 250 )
 
 [node name="TempPlatform2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 615, 96 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause/PauseMenu"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2464.0
+margin_bottom = 1414.0
+color = Color( 0, 0, 0, 0.270588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
