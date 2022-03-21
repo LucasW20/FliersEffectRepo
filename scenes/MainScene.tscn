@@ -27,6 +27,7 @@ position = Vector2( 615, 96 )
 
 [node name="PauseMenu" type="Control" parent="Pause"]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 4 )
