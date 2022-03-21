@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TestingTimeBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Pause.cs" type="Script" id=4]
+[ext_resource path="res://images/black.png" type="Texture" id=5]
+[ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 68.75 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -78,7 +83,27 @@ margin_right = 239.0
 margin_bottom = 92.0
 text = "Main Menu"
 
+[node name="ExitObject" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Black" type="Sprite" parent="ExitObject"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 467, 353 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="ExitObject"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitObject/Area2D"]
+position = Vector2( 769, -7 )
+shape = SubResource( 1 )
+
+[node name="ExitTimer" type="Timer" parent="ExitObject"]
+wait_time = 0.05
+
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Continue" to="Pause/PauseMenu" method="OnContinuePressed"]
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Options" to="Pause/PauseMenu" method="OnOptionsPressed"]
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Restart" to="Pause/PauseMenu" method="OnRestartPressed"]
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/MainMenu" to="Pause/PauseMenu" method="OnMainMenuPressed"]
+[connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
+[connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
