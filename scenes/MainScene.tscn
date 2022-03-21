@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TestingTimeBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Pause.cs" type="Script" id=4]
+[ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39.5, 57 )
 
 [node name="Main" type="Node2D"]
 
@@ -44,3 +48,12 @@ color = Color( 0, 0, 0, 0.270588 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 772, 3 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
