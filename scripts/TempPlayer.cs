@@ -16,7 +16,6 @@ public class TempPlayer : KinematicBody2D {
 	private bool TimeTraveled;
 	private Vector2 velocity;
 	private Node2D myNode;
-	private Control myControl;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -116,7 +115,7 @@ public class TempPlayer : KinematicBody2D {
 			//Console.WriteLine("On Ceiling");
 			velocity.y *= 0;
 			velocity.y += FAST_FALL_GRAVITY * delta;
-        }
+		}
 
 		//when the player presses the jump button initiate the jump by changing the velocity
 		if (Input.IsActionJustPressed("jump")) {
@@ -139,10 +138,10 @@ public class TempPlayer : KinematicBody2D {
 		}
 	}
 
-    //method for when the timer runs out. 
-    private void _on_JumpTimer_timeout() {
+	//method for when the timer runs out. 
+	private void _on_JumpTimer_timeout() {
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
-        jumpHeight = true;
-        jumpTimer.Stop();
-    }
+		jumpHeight = true;
+		jumpTimer.Stop();
+	}
 }
