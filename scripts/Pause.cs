@@ -12,7 +12,7 @@ public class Pause : Control
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
-	private bool PauseState;
+	public bool PauseState;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -29,10 +29,45 @@ public class Pause : Control
 	{
 		if (Input.IsActionJustPressed("pause"))
 		{
-			PauseState = !GetTree().Paused;
-			GetTree().Paused = PauseState;
-			//Console.WriteLine("pause toggled");
-			Visible = PauseState;
+			Pausing(!GetTree().Paused);
 		}
 	}
+
+	private void OnContinuePressed()
+    {
+		Console.WriteLine("Continue Pressed");
+		Pausing(false);
+    }
+
+	private void OnOptionsPressed()
+	{
+		Console.WriteLine("Options Pressed");
+	}
+
+	private void OnRestartPressed()
+	{
+		Console.WriteLine("Restart Pressed");
+		Pausing(false);
+
+		GetTree().ChangeScene("res://scenes/MainScene.tscn");
+	}
+
+	private void OnMainMenuPressed()
+	{
+		Console.WriteLine("Main Menu Pressed");
+		Pausing(false);
+		GetTree().ChangeScene("res://scenes/MainMenu.tscn");
+
+	}
+
+	public void Pausing(bool pause)
+    {
+		PauseState = pause;
+		GetTree().Paused = PauseState;
+		Console.WriteLine("pause toggled");
+		Console.WriteLine(PauseState);
+		Visible = PauseState;
+	}
+
+	
 }

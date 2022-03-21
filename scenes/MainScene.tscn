@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Pause.cs" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
+position = Vector2( 1, 0 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 90, 247 )
