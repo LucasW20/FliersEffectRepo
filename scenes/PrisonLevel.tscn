@@ -1,15 +1,81 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/TempPlayer.cs" type="Script" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TilableWalPlatform@4x.png" type="Texture" id=3]
+[ext_resource path="res://images/tempAni/run-5.png" type="Texture" id=4]
+[ext_resource path="res://images/tempAni/run-1.png" type="Texture" id=5]
+[ext_resource path="res://images/tempAni/run-2.png" type="Texture" id=6]
+[ext_resource path="res://images/tempAni/run-6.png" type="Texture" id=7]
+[ext_resource path="res://images/tempAni/run-8.png" type="Texture" id=8]
+[ext_resource path="res://images/tempAni/run-7.png" type="Texture" id=9]
+[ext_resource path="res://images/tempAni/run-3.png" type="Texture" id=10]
+[ext_resource path="res://images/tempAni/run-4.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+} ]
 
 [node name="PrisonMain" type="Node2D"]
 
-[node name="TempPlatform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 189, 232 )
+[node name="TempPlayer" type="KinematicBody2D" parent="."]
+position = Vector2( -5535, 476 )
+script = ExtResource( 1 )
 
-[node name="TempPlatform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 275, 70 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TempPlayer"]
+visible = false
+position = Vector2( -5, 8.5 )
+polygon = PoolVector2Array( -11, 10.5, -19, 15.5, -22, 25.5, 24, 25.5, 14, 8.5, 13, -1.5, 24, -4.5, 23, -13.5, 17, -12.5, 23, -25.5, 8, -25.5, 4, -16.5 )
 
-[node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 162 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TempPlayer"]
+frames = SubResource( 2 )
+animation = "run"
+frame = 5
+playing = true
+
+[node name="JumpTimer" type="Timer" parent="TempPlayer"]
+wait_time = 0.3
+
+[node name="FollowCam" type="Camera2D" parent="TempPlayer"]
+current = true
+
+[node name="FutureContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TilableWalPlatform4x" type="Sprite" parent="FutureContainer"]
+position = Vector2( -409, 250 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+offset = Vector2( 2190, 1650 )
+
+[node name="TilableWalPlatform4x2" type="Sprite" parent="FutureContainer"]
+position = Vector2( -409, 105 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+offset = Vector2( 2190, 1650 )
+
+[node name="Floor" parent="FutureContainer" instance=ExtResource( 2 )]
+position = Vector2( -191, 553 )
+scale = Vector2( 25, 1 )
+
+[node name="TempPlatform" parent="FutureContainer" instance=ExtResource( 2 )]
+position = Vector2( -4484, 390 )
+scale = Vector2( 0.883805, 5.87865 )
+
+[node name="TempPlatform2" parent="FutureContainer" instance=ExtResource( 2 )]
+position = Vector2( -5243, 408 )
+scale = Vector2( 0.35999, 0.560001 )
+
+[node name="TempPlatform3" parent="FutureContainer" instance=ExtResource( 2 )]
+position = Vector2( -4933, 312 )
+scale = Vector2( 0.35999, 0.560001 )
+
+[connection signal="timeout" from="TempPlayer/JumpTimer" to="TempPlayer" method="_on_JumpTimer_timeout"]

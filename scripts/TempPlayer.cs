@@ -22,11 +22,12 @@ public class TempPlayer : KinematicBody2D {
 		walkSpeed = 20;
 		maxSpeed = 400f;
 		TimeTraveled = false;
-		jumpHeight = false;
 		jumpRelease = false;
 		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
 		jumpTimer = GetNode<Timer>("JumpTimer");
+
+		//GetNode<AnimationPlayer>("AnimationPlayer").Play("Running");
 	}
 
 	//runs physics checks every frame 
@@ -35,25 +36,27 @@ public class TempPlayer : KinematicBody2D {
 
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			if (velocity.x > -maxSpeed) {
+			//if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
 					velocity.x *= -1;
 				} else {
 					//apply speed
-					velocity.x = velocity.x - acc * walkSpeed;
+					//velocity.x = velocity.x - acc * walkSpeed;
+					velocity.x = velocity.x - acc;
 				}
-			}
+			//}
 		} else if (Input.IsActionPressed("right")) {
-			if (velocity.x < maxSpeed) {
+			//if (velocity.x < maxSpeed) {
 				if (velocity.x < 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
 					velocity.x *= -1;
 				} else {
 					//apply speed
-					velocity.x = velocity.x + acc * walkSpeed;
+					//velocity.x = velocity.x + acc * walkSpeed;
+					velocity.x = velocity.x + acc;
 				}
-			}
+			//}
 		} else {
 			velocity.x = 0;
 		}
@@ -78,7 +81,7 @@ public class TempPlayer : KinematicBody2D {
 		//  }
 		//}
 
-		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		
 		//actually move the player
 		MoveAndSlide(velocity, new Vector2(0, -1));
@@ -86,9 +89,8 @@ public class TempPlayer : KinematicBody2D {
 	
 	//gravity and jump variables
 	private const float NORMAL_GRAVITY = 750;
-	private const  float FAST_FALL_GRAVITY = 1500;
+	private const  float FAST_FALL_GRAVITY = 2000;
 	private const float JUMP = -500;
-	private bool jumpHeight;
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
@@ -103,7 +105,7 @@ public class TempPlayer : KinematicBody2D {
 	private void JumpPhysicsProcess(float delta) {
 		//Vertical movement code. Apply gravity. Only apply while their in the air.
 		if (!IsOnFloor()) {
-			if (!jumpHeight || !jumpRelease) { //if they're just falling normally use normal gravity
+			if (!jumpRelease) { //if they're just falling normally use normal gravity
 				velocity.y += NORMAL_GRAVITY * delta;
 			} else { //if they've jumped after a time or released jump button use faster gravity
 				velocity.y += FAST_FALL_GRAVITY * delta;
@@ -122,7 +124,6 @@ public class TempPlayer : KinematicBody2D {
 			if (IsOnFloor()) { //cant jump while on the ground
 				velocity.y = JUMP;
 				//setup for jump control
-				jumpHeight = false;
 				jumpRelease = false;
 				jumpTimer.Start();
 			}
@@ -141,7 +142,7 @@ public class TempPlayer : KinematicBody2D {
 	//method for when the timer runs out. 
 	private void _on_JumpTimer_timeout() {
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
-		jumpHeight = true;
+		jumpRelease = true;
 		jumpTimer.Stop();
 	}
 }
