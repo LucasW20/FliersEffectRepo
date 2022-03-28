@@ -42,7 +42,8 @@ public class TempPlayer : KinematicBody2D {
 		JumpPhysicsProcess(delta);
 		DirectionMovementPP(delta);
 
-		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
 
 		
@@ -146,6 +147,10 @@ public class TempPlayer : KinematicBody2D {
 				velocity.y *= 0.6f;
 			}
 		}
+
+		if (IsOnFloor()) {
+			jumpRelease = false;
+        }
 	}
 
 	//method for when the timer runs out. 
