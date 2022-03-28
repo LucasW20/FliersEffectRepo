@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
@@ -8,16 +8,17 @@
 [ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
 [ext_resource path="res://scenes/TempEnemyMovement.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/UnderCurveSidewalk.png" type="Texture" id=8]
+[ext_resource path="res://images/icon.png" type="Texture" id=9]
+[ext_resource path="res://scripts/CurveBehaviour.cs" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 68.75 )
 
-[sub_resource type="ConcavePolygonShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 92.6841, 248.345 )
 
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -895, 225, 0, 0, 0, 0, -808, 212, 0, 0, 0, 0, -647, 180, 0, 0, 0, 0, -615, 156, 0, 0, 0, 0, -615, 90, 0, 0, 0, 0, -654, 34, 0, 0, 0, 0, -739, 16, 0, 0, 0, 0, -822, 25, 0, 0, 0, 0, -874, 73, 0, 0, 0, 0, -870, 138, 0, 0, 0, 0, -836, 173, 0, 0, 0, 0, -736, 200, 0, 0, 0, 0, -583, 216, 0, 0, 0, 0, -532, 217 )
-}
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 31 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -121,35 +122,42 @@ position = Vector2( 545, -4 )
 position = Vector2( 1227, 222 )
 
 [node name="UnderCurveSidewalk" type="Sprite" parent="."]
-position = Vector2( 52, 259 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 52, 272 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="UnderCurveSidewalk"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UnderCurveSidewalk/StaticBody2D"]
 position = Vector2( 16, 12 )
-polygon = PoolVector2Array( -2, 0, 290, -318, 36, -318, 34, -294, 32, -272, 30, -252, 24, -228, 18, -206, 8, -182, -4, -158, -18, -132, -36, -106, -58, -78, -78, -58, -102, -38, -126, -22, -150, -8, -176, 6, -204, 18, -232, 26, -258, 32, -324, 40, -168, 86 )
+polygon = PoolVector2Array( -2, 0, 290, -318, 36, -318, 34, -294, 32, -272, 30, -252, 24, -228, 18, -206, 8, -182, -2, -158, -16, -132, -34, -106, -46, -92, -58, -78, -78, -58, -102, -38, -126, -22, -150, -8, -176, 6, -204, 18, -232, 26, -258, 32, -324, 40, -168, 86 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderCurveSidewalk/StaticBody2D"]
-position = Vector2( 16, 12 )
-shape = SubResource( 3 )
+[node name="Area2D" type="Area2D" parent="UnderCurveSidewalk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderCurveSidewalk/Area2D"]
+position = Vector2( -70.8557, -66.0692 )
+rotation = 0.785398
+scale = Vector2( 1, 1 )
+shape = SubResource( 5 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -279, 223 )
+position = Vector2( -261, 261 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="FollowCam" type="Camera2D" parent="TempPlayer"]
 current = true
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 3, 42 )
-curve = SubResource( 2 )
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 97, -284 )
+scale = Vector2( 1, 15 )
+texture = ExtResource( 9 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -895, 225 )
-rotation = -0.148332
-loop = false
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 4 )
 
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Continue" to="Pause/PauseMenu" method="OnContinuePressed"]
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Options" to="Pause/PauseMenu" method="OnOptionsPressed"]
@@ -157,3 +165,5 @@ loop = false
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/MainMenu" to="Pause/PauseMenu" method="OnMainMenuPressed"]
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
+[connection signal="body_entered" from="UnderCurveSidewalk/Area2D" to="UnderCurveSidewalk" method="OnBodyEnteredTrigger"]
+[connection signal="body_exited" from="UnderCurveSidewalk/Area2D" to="UnderCurveSidewalk" method="OnBodyExitTrigger"]

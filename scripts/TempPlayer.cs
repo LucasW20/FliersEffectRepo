@@ -10,44 +10,66 @@ using System;
  * @version 3-10-2022
  */
 public class TempPlayer : KinematicBody2D {
-	[Export] public int walkSpeed = 400;
-	[Export] public int acc = 1;
-	[Export] public float maxSpeed;
+	private int walkSpeed = 400;
+	private int acc = 10;
+	private float maxSpeed;
 	private bool TimeTraveled;
-	private Vector2 velocity;
 	private Node2D myNode;
+
+	public Vector2 velocity;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		walkSpeed = 20;
-		maxSpeed = 400f;
+		maxSpeed = 600f;
 		TimeTraveled = false;
 		jumpRelease = false;
 		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
 		jumpTimer = GetNode<Timer>("JumpTimer");
-
-		//GetNode<AnimationPlayer>("AnimationPlayer").Play("Running");
 	}
+
+	Vector2 FLOOR_NORMAL = Vector2.Up;
+	const float SNAP_LENGTH = 8.0f;
+	Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
+
+
+	public bool onCurve = false;
 
 	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
 		JumpPhysicsProcess(delta);
+		DirectionMovementPP(delta);
 
+		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		//Console.WriteLine(onCurve);
+
+		
+		
+		//actually move the player
+		if (onCurve) { //while the player is on a curve, snap them to the ground
+			velocity.y = MoveAndSlideWithSnap(velocity, snapVector, FLOOR_NORMAL, true).y;
+		} else { //if they're not then only move and slide so they can jump
+			MoveAndSlide(velocity, new Vector2(0, -1));
+		}
+	}
+
+	private void DirectionMovementPP(float delta) {
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			//if (velocity.x > -maxSpeed) {
+			if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
-					//if the player swaps direction then maintain the momentum by swaping the velocity sign
+					 //if the player swaps direction then maintain the momentum by swaping the velocity sign
 					velocity.x *= -1;
 				} else {
 					//apply speed
 					//velocity.x = velocity.x - acc * walkSpeed;
 					velocity.x = velocity.x - acc;
 				}
-			//}
+			}
 		} else if (Input.IsActionPressed("right")) {
-			//if (velocity.x < maxSpeed) {
+			if (velocity.x < maxSpeed) {
 				if (velocity.x < 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
 					velocity.x *= -1;
@@ -56,9 +78,9 @@ public class TempPlayer : KinematicBody2D {
 					//velocity.x = velocity.x + acc * walkSpeed;
 					velocity.x = velocity.x + acc;
 				}
-			//}
+			}
 		} else {
-			velocity.x = 0;
+				velocity.x = 0;
 		}
 
 		//time travel input
@@ -72,19 +94,6 @@ public class TempPlayer : KinematicBody2D {
 				TimeTraveled = false;
 			}
 		}
-
-		////down input REPLACED FOR BETTER JUMP CONTROL
-		//if (Input.IsActionPressed("down")) {
-		//	if (!IsOnFloor()) { //if the player is in the air then they can press 'S' to shoot down at the cost of some horizontal movement
-		//		velocity.x -= velocity.x * 0.25f;
-		//		velocity.y = 500;
-		//  }
-		//}
-
-		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
-		
-		//actually move the player
-		MoveAndSlide(velocity, new Vector2(0, -1));
 	}
 	
 	//gravity and jump variables
@@ -94,7 +103,7 @@ public class TempPlayer : KinematicBody2D {
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
-	/* There are two systems for a better jump.
+	/** There are two systems for a better jump.
 	* 1. Max Height. When the player reaches the maximum height of the jump (determined by the timer) gravity is
 	* switched to the FAST_FALL_GRAVITY. This is to make jumps feel less floaty. Uses timer and jumpHeight bool 
 	* to determine when to swap the gravity. Reset jumpHeight when the player presses the jump button. 

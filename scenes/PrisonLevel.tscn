@@ -34,7 +34,7 @@ polygon = PoolVector2Array( -11, 10.5, -19, 15.5, -22, 25.5, 24, 25.5, 14, 8.5, 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TempPlayer"]
 frames = SubResource( 2 )
 animation = "run"
-frame = 5
+frame = 1
 playing = true
 
 [node name="JumpTimer" type="Timer" parent="TempPlayer"]
