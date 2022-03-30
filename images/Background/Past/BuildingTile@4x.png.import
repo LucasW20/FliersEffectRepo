@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UnderCurveSidewalk.png-262192e5f366d7da836ce6220d05c29a.stex"
+path="res://.import/BuildingTile@4x.png-e6dae4833e5d3d16cc9802ed023884bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/UnderCurveSidewalk.png"
-dest_files=[ "res://.import/UnderCurveSidewalk.png-262192e5f366d7da836ce6220d05c29a.stex" ]
+source_file="res://images/Background/Past/BuildingTile@4x.png"
+dest_files=[ "res://.import/BuildingTile@4x.png-e6dae4833e5d3d16cc9802ed023884bf.stex" ]
 
 [params]
 

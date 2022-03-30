@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/TempPlayer.cs" type="Script" id=1]
-[ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Temp/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TilableWalPlatform@4x.png" type="Texture" id=3]
 [ext_resource path="res://images/tempAni/run-5.png" type="Texture" id=4]
 [ext_resource path="res://images/tempAni/run-1.png" type="Texture" id=5]
@@ -11,7 +11,8 @@
 [ext_resource path="res://images/tempAni/run-7.png" type="Texture" id=9]
 [ext_resource path="res://images/tempAni/run-3.png" type="Texture" id=10]
 [ext_resource path="res://images/tempAni/run-4.png" type="Texture" id=11]
-[ext_resource path="res://scenes/TempEnemyMovement.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Temp/TempEnemyMovement.tscn" type="PackedScene" id=12]
+
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
