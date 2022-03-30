@@ -57,7 +57,7 @@ public class TempEnemyMovement : KinematicBody2D
         if (body is TempPlayer)
         {
             TempPlayer player = body as TempPlayer;
-            player.GetTree().ChangeScene("res://scenes/MainScene.tscn");
+            player.GetTree().ReloadCurrentScene();
         }
     }
 }

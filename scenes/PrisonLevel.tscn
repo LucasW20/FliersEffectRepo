@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/TempPlayer.cs" type="Script" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://images/tempAni/run-7.png" type="Texture" id=9]
 [ext_resource path="res://images/tempAni/run-3.png" type="Texture" id=10]
 [ext_resource path="res://images/tempAni/run-4.png" type="Texture" id=11]
+[ext_resource path="res://scenes/TempEnemyMovement.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -21,6 +22,7 @@ animations = [ {
 } ]
 
 [node name="PrisonMain" type="Node2D"]
+position = Vector2( 2886, 638 )
 
 [node name="TempPlayer" type="KinematicBody2D" parent="."]
 position = Vector2( -5535, 476 )
@@ -34,7 +36,7 @@ polygon = PoolVector2Array( -11, 10.5, -19, 15.5, -22, 25.5, 24, 25.5, 14, 8.5, 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TempPlayer"]
 frames = SubResource( 2 )
 animation = "run"
-frame = 1
+frame = 3
 playing = true
 
 [node name="JumpTimer" type="Timer" parent="TempPlayer"]
@@ -77,5 +79,8 @@ scale = Vector2( 0.35999, 0.560001 )
 [node name="TempPlatform3" parent="FutureContainer" instance=ExtResource( 2 )]
 position = Vector2( -4933, 312 )
 scale = Vector2( 0.35999, 0.560001 )
+
+[node name="Enemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( -4127, 471 )
 
 [connection signal="timeout" from="TempPlayer/JumpTimer" to="TempPlayer" method="_on_JumpTimer_timeout"]
