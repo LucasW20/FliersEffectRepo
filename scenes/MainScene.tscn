@@ -1,12 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Temp/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Pause.cs" type="Script" id=4]
 [ext_resource path="res://images/black.png" type="Texture" id=5]
 [ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
 [ext_resource path="res://scenes/Temp/TempEnemyMovement.tscn" type="PackedScene" id=7]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 68.75 )
@@ -120,7 +119,7 @@ position = Vector2( 545, -4 )
 position = Vector2( 1227, 222 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -320, 252 )
+position = Vector2( -161, 240 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Camera2D" type="Camera2D" parent="TempPlayer"]

@@ -8,7 +8,7 @@ using System;
  * 
  * @author Lucas_C_Wright
  * @start 3-26-2022
- * @version 3-27-2022
+ * @version 3-30-2022
  */
 public class CurveBehaviour : Node {
 
