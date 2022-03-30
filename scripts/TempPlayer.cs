@@ -7,13 +7,12 @@ using System;
  * @editor Jaden_Patten
  * @editor Jake_S
  * @start 3-7-2022
- * @version 3-10-2022
+ * @version 3-30-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private int walkSpeed = 400;
 	private int acc = 10;
 	private float maxSpeed;
-	private bool TimeTraveled;
+	private bool timeTraveled;
 	private Node2D myNode;
 	//private JumpPhysics jump;
 
@@ -21,9 +20,8 @@ public class TempPlayer : KinematicBody2D {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		walkSpeed = 20;
-		maxSpeed = 600f;
-		TimeTraveled = false;
+		maxSpeed = 600;
+		timeTraveled = false;
 		jumpRelease = false;
 		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
@@ -33,30 +31,30 @@ public class TempPlayer : KinematicBody2D {
 		myNode.GetChild<AnimationPlayer>(3).Play("Running");
 	}
 
-	Vector2 FLOOR_NORMAL = Vector2.Up;
-	const float SNAP_LENGTH = 8.0f;
-	Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
-	float SLOPE_THRESH = 0.802851f;
-
-
-	public bool onCurve = false;
+	//snap movement variables
+	private Vector2 FLOOR_NORMAL = Vector2.Up;
+	private const float SNAP_LENGTH = 32.0f;
+	private Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
+	private float SLOPE_THRESH = 0.802851f;
 
 	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
 		//velocity = jump.JumpInput((TempPlayer)myNode, velocity, delta);
+		//get jump and directional movement
 		JumpPhysicsProcess(delta);
 		DirectionMovementPP(delta);
 
-		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		//move the character so that they snap to the gound and not bounce on slopes
+		velocity.y = MoveAndSlideWithSnap(velocity, snapVector, FLOOR_NORMAL, true, 4, SLOPE_THRESH).y;
+
+		//after a jump swap back to the normal snapVector so the player continues to snap to the ground
+		if (IsOnFloor() && snapVector == Vector2.Zero) {
+			snapVector = SNAP_LENGTH * Vector2.Down;
+		}
+
+		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		//Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
-		
-		//actually move the player
-		//if (onCurve) { //while the player is on a curve, snap them to the ground
-		velocity.y = MoveAndSlideWithSnap(velocity, snapVector, FLOOR_NORMAL, true, 4, SLOPE_THRESH).y;
-		//} else { //if they're not then only move and slide so they can jump
-			//MoveAndSlide(velocity, new Vector2(0, -1));
-		//}
 	}
 
 	private void DirectionMovementPP(float delta) {
@@ -90,12 +88,12 @@ public class TempPlayer : KinematicBody2D {
 		//time travel input
 		if (Input.IsActionJustPressed("timetravel")) {
 			//Console.WriteLine("Pressed/n");
-			if (TimeTraveled == false) { //if in the future then move to the past
+			if (timeTraveled == false) { //if in the future then move to the past
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 300);
-				TimeTraveled = true;
+				timeTraveled = true;
 			} else { //if in the past then move to the future
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 300);
-				TimeTraveled = false;
+				timeTraveled = false;
 			}
 		}
 	}
@@ -103,7 +101,7 @@ public class TempPlayer : KinematicBody2D {
 	//gravity and jump variables
 	private const float NORMAL_GRAVITY = 750;
 	private const  float FAST_FALL_GRAVITY = 2000;
-	private const float JUMP = -500;
+	private const float JUMP = -750;
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
@@ -136,14 +134,13 @@ public class TempPlayer : KinematicBody2D {
             velocity.y += FAST_FALL_GRAVITY * delta;
         }
 
-        //when the player presses the jump button initiate the jump by changing the velocity
-        if (Input.IsActionJustPressed("jump")) {
-            if (IsOnFloor()) { //cant jump while on the ground
-                velocity.y = JUMP;
-                //setup for jump control
-                jumpRelease = false;
-                jumpTimer.Start();
-            }
+        //when the player presses the jump button while on the ground initiate the jump by changing the velocity
+        if (Input.IsActionJustPressed("jump") && IsOnFloor()) {
+			snapVector = Vector2.Zero;
+			velocity.y = JUMP;
+            //setup for jump control
+            jumpRelease = false;
+            jumpTimer.Start();
         }
 
         //when the player releases the jump button swap over to the fast fall gravity
@@ -158,6 +155,7 @@ public class TempPlayer : KinematicBody2D {
 
     //method for when the timer runs out. 
     private void _on_JumpTimer_timeout() {
+		//when the timer runs out flip the jumpRelease boolean so that the faster gravity is used instead
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
 		jumpRelease = true;
 		jumpTimer.Stop();
