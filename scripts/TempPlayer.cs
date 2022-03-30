@@ -15,9 +15,9 @@ public class TempPlayer : KinematicBody2D {
 	private float maxSpeed;
 	private bool TimeTraveled;
 	private Node2D myNode;
+	//private JumpPhysics jump;
 
 	public Vector2 velocity;
-
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -28,32 +28,35 @@ public class TempPlayer : KinematicBody2D {
 		velocity = new Vector2();
 		myNode = GetParent().GetNode<Node2D>("TempPlayer");
 		jumpTimer = GetNode<Timer>("JumpTimer");
+		//jump = new JumpPhysics();
+
+		myNode.GetChild<AnimationPlayer>(3).Play("Running");
 	}
 
 	Vector2 FLOOR_NORMAL = Vector2.Up;
 	const float SNAP_LENGTH = 8.0f;
 	Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
+	float SLOPE_THRESH = 0.802851f;
 
 
 	public bool onCurve = false;
 
 	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
+		//velocity = jump.JumpInput((TempPlayer)myNode, velocity, delta);
 		JumpPhysicsProcess(delta);
 		DirectionMovementPP(delta);
 
-		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
-		Console.WriteLine(jumpRelease);
+		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		//Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
-
-		
 		
 		//actually move the player
-		if (onCurve) { //while the player is on a curve, snap them to the ground
-			velocity.y = MoveAndSlideWithSnap(velocity, snapVector, FLOOR_NORMAL, true).y;
-		} else { //if they're not then only move and slide so they can jump
-			MoveAndSlide(velocity, new Vector2(0, -1));
-		}
+		//if (onCurve) { //while the player is on a curve, snap them to the ground
+		velocity.y = MoveAndSlideWithSnap(velocity, snapVector, FLOOR_NORMAL, true, 4, SLOPE_THRESH).y;
+		//} else { //if they're not then only move and slide so they can jump
+			//MoveAndSlide(velocity, new Vector2(0, -1));
+		//}
 	}
 
 	private void DirectionMovementPP(float delta) {
@@ -104,7 +107,7 @@ public class TempPlayer : KinematicBody2D {
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
-	/** There are two systems for a better jump.
+    /** There are two systems for a better jump.
 	* 1. Max Height. When the player reaches the maximum height of the jump (determined by the timer) gravity is
 	* switched to the FAST_FALL_GRAVITY. This is to make jumps feel less floaty. Uses timer and jumpHeight bool 
 	* to determine when to swap the gravity. Reset jumpHeight when the player presses the jump button. 
@@ -112,49 +115,49 @@ public class TempPlayer : KinematicBody2D {
 	* This is to give better jump control to the player. Uses jumpRelease bool to determine when the button is released
 	* and to switch to FAST_FALL_GRAVITY. Reset jumpRelease to false when player presses the jump button. 
 	*/
-	private void JumpPhysicsProcess(float delta) {
-		//Vertical movement code. Apply gravity. Only apply while their in the air.
-		if (!IsOnFloor()) {
-			if (!jumpRelease) { //if they're just falling normally use normal gravity
-				velocity.y += NORMAL_GRAVITY * delta;
-			} else { //if they've jumped after a time or released jump button use faster gravity
-				velocity.y += FAST_FALL_GRAVITY * delta;
-			}
-		}
-
-		//When the player hits the ceiling make sure they don't dangle.
-		if (IsOnCeiling()) {
-			//Console.WriteLine("On Ceiling");
-			velocity.y *= 0;
-			velocity.y += FAST_FALL_GRAVITY * delta;
-		}
-
-		//when the player presses the jump button initiate the jump by changing the velocity
-		if (Input.IsActionJustPressed("jump")) {
-			if (IsOnFloor()) { //cant jump while on the ground
-				velocity.y = JUMP;
-				//setup for jump control
-				jumpRelease = false;
-				jumpTimer.Start();
-			}
-		}
-
-		//when the player releases the jump button swap over to the fast fall gravity
-		if (Input.IsActionJustReleased("jump")) {
-			if (!IsOnFloor()) { 
-				//Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
-				jumpRelease = true;
-				velocity.y *= 0.6f;
-			}
-		}
-
-		if (IsOnFloor()) {
-			jumpRelease = false;
+    private void JumpPhysicsProcess(float delta) {
+        //Vertical movement code. Apply gravity. Only apply while their in the air.
+        if (!IsOnFloor()) {
+            if (!jumpRelease) { //if they're just falling normally use normal gravity
+                velocity.y += NORMAL_GRAVITY * delta;
+            } else { //if they've jumped after a time or released jump button use faster gravity
+                velocity.y += FAST_FALL_GRAVITY * delta;
+            }
         }
-	}
 
-	//method for when the timer runs out. 
-	private void _on_JumpTimer_timeout() {
+        if (IsOnFloor()) {
+            jumpRelease = false;
+        }
+
+        //When the player hits the ceiling make sure they don't dangle.
+        if (IsOnCeiling()) {
+            //Console.WriteLine("On Ceiling");
+            velocity.y *= 0;
+            velocity.y += FAST_FALL_GRAVITY * delta;
+        }
+
+        //when the player presses the jump button initiate the jump by changing the velocity
+        if (Input.IsActionJustPressed("jump")) {
+            if (IsOnFloor()) { //cant jump while on the ground
+                velocity.y = JUMP;
+                //setup for jump control
+                jumpRelease = false;
+                jumpTimer.Start();
+            }
+        }
+
+        //when the player releases the jump button swap over to the fast fall gravity
+        if (Input.IsActionJustReleased("jump")) {
+            if (!IsOnFloor()) {
+                //Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
+                jumpRelease = true;
+                velocity.y *= 0.6f;
+            }
+        }
+    }
+
+    //method for when the timer runs out. 
+    private void _on_JumpTimer_timeout() {
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
 		jumpRelease = true;
 		jumpTimer.Stop();

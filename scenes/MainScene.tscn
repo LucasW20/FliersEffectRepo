@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/TempPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/TempPlatform.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
 [ext_resource path="res://scenes/TempEnemyMovement.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/UnderCurveSidewalk.png" type="Texture" id=8]
-[ext_resource path="res://images/icon.png" type="Texture" id=9]
 [ext_resource path="res://scripts/CurveBehaviour.cs" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -17,11 +16,18 @@ extents = Vector2( 48, 68.75 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 92.6841, 248.345 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32, 31 )
-
 [node name="Main" type="Node2D"]
 position = Vector2( 1, 0 )
+
+[node name="TempPlatform5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 269, 239 )
+rotation = -0.785398
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TempPlatform5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TempPlatform5/StaticBody2D"]
+position = Vector2( -4.94977, -2.12128 )
+polygon = PoolVector2Array( -95.4594, -33.2341, 221.324, -33.2341, 226.274, -28.2843, 196.576, 41.0121, 193.04, 37.4766, -24.7487, 37.4766, -22.6274, 39.5979, -24.7487, 41.7192, -99.7021, -34.6483, -98.2878, -36.0625 )
 
 [node name="TempPlatform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
@@ -102,7 +108,7 @@ script = ExtResource( 6 )
 
 [node name="Black" type="Sprite" parent="ExitObject"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 576, 478 )
+position = Vector2( 404, 622 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 5 )
 
@@ -122,7 +128,7 @@ position = Vector2( 545, -4 )
 position = Vector2( 1227, 222 )
 
 [node name="UnderCurveSidewalk" type="Sprite" parent="."]
-position = Vector2( 52, 272 )
+position = Vector2( -62, 463 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 script = ExtResource( 10 )
@@ -141,22 +147,11 @@ rotation = 0.785398
 shape = SubResource( 5 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -261, 261 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -320, 252 )
+scale = Vector2( 0.25, 0.25 )
 
-[node name="FollowCam" type="Camera2D" parent="TempPlayer"]
+[node name="Camera2D" type="Camera2D" parent="TempPlayer"]
 current = true
-
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 97, -284 )
-scale = Vector2( 1, 15 )
-texture = ExtResource( 9 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D"]
-position = Vector2( 0, 1 )
-shape = SubResource( 4 )
 
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Continue" to="Pause/PauseMenu" method="OnContinuePressed"]
 [connection signal="pressed" from="Pause/PauseMenu/VBoxContainer/Options" to="Pause/PauseMenu" method="OnOptionsPressed"]
