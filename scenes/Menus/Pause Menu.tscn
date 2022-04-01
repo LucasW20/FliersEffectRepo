@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Pause.cs" type="Script" id=1]
+
+[node name="Pause" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="PauseMenu"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2464.0
+margin_bottom = 1414.0
+color = Color( 0, 0, 0, 0.270588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+margin_left = 68.0
+margin_top = 74.0
+margin_right = 307.0
+margin_bottom = 281.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="PauseMenu/VBoxContainer"]
+margin_right = 239.0
+margin_bottom = 20.0
+text = "Continue"
+
+[node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
+margin_top = 24.0
+margin_right = 239.0
+margin_bottom = 44.0
+text = "Options"
+
+[node name="Restart" type="Button" parent="PauseMenu/VBoxContainer"]
+margin_top = 48.0
+margin_right = 239.0
+margin_bottom = 68.0
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer"]
+margin_top = 72.0
+margin_right = 239.0
+margin_bottom = 92.0
+text = "Main Menu"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Continue" to="PauseMenu" method="OnContinuePressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Options" to="PauseMenu" method="OnOptionsPressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Restart" to="PauseMenu" method="OnRestartPressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="PauseMenu" method="OnMainMenuPressed"]
