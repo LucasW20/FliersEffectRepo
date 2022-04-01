@@ -10,7 +10,7 @@ using System;
  * @version 3-30-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private int acc = 10;
+	private int acc = 40;
 	private float maxSpeed;
 	private bool timeTraveled;
 	private Node2D myNode;
@@ -20,7 +20,7 @@ public class TempPlayer : KinematicBody2D {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		maxSpeed = 600;
+		maxSpeed = 2400;
 		timeTraveled = false;
 		jumpRelease = false;
 		velocity = new Vector2();
@@ -99,13 +99,13 @@ public class TempPlayer : KinematicBody2D {
 	}
 	
 	//gravity and jump variables
-	private const float NORMAL_GRAVITY = 750;
-	private const  float FAST_FALL_GRAVITY = 2000;
-	private const float JUMP = -750;
+	private const float NORMAL_GRAVITY = 1000;
+	private const  float FAST_FALL_GRAVITY = 4000;
+	private const float JUMP = -2750;
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
-    /** There are two systems for a better jump.
+	/** There are two systems for a better jump.
 	* 1. Max Height. When the player reaches the maximum height of the jump (determined by the timer) gravity is
 	* switched to the FAST_FALL_GRAVITY. This is to make jumps feel less floaty. Uses timer and jumpHeight bool 
 	* to determine when to swap the gravity. Reset jumpHeight when the player presses the jump button. 
@@ -113,48 +113,48 @@ public class TempPlayer : KinematicBody2D {
 	* This is to give better jump control to the player. Uses jumpRelease bool to determine when the button is released
 	* and to switch to FAST_FALL_GRAVITY. Reset jumpRelease to false when player presses the jump button. 
 	*/
-    private void JumpPhysicsProcess(float delta) {
-        //Vertical movement code. Apply gravity. Only apply while their in the air.
-        if (!IsOnFloor()) {
-            if (!jumpRelease) { //if they're just falling normally use normal gravity
-                velocity.y += NORMAL_GRAVITY * delta;
-            } else { //if they've jumped after a time or released jump button use faster gravity
-                velocity.y += FAST_FALL_GRAVITY * delta;
-            }
-        }
+	private void JumpPhysicsProcess(float delta) {
+		//Vertical movement code. Apply gravity. Only apply while their in the air.
+		if (!IsOnFloor()) {
+			if (!jumpRelease) { //if they're just falling normally use normal gravity
+				velocity.y += NORMAL_GRAVITY * delta;
+			} else { //if they've jumped after a time or released jump button use faster gravity
+				velocity.y += FAST_FALL_GRAVITY * delta;
+			}
+		}
 
-        if (IsOnFloor()) {
-            jumpRelease = false;
-        }
+		if (IsOnFloor()) {
+			jumpRelease = false;
+		}
 
-        //When the player hits the ceiling make sure they don't dangle.
-        if (IsOnCeiling()) {
-            //Console.WriteLine("On Ceiling");
-            velocity.y *= 0;
-            velocity.y += FAST_FALL_GRAVITY * delta;
-        }
+		//When the player hits the ceiling make sure they don't dangle.
+		if (IsOnCeiling()) {
+			//Console.WriteLine("On Ceiling");
+			velocity.y *= 0;
+			velocity.y += FAST_FALL_GRAVITY * delta;
+		}
 
-        //when the player presses the jump button while on the ground initiate the jump by changing the velocity
-        if (Input.IsActionJustPressed("jump") && IsOnFloor()) {
+		//when the player presses the jump button while on the ground initiate the jump by changing the velocity
+		if (Input.IsActionJustPressed("jump") && IsOnFloor()) {
 			snapVector = Vector2.Zero;
 			velocity.y = JUMP;
-            //setup for jump control
-            jumpRelease = false;
-            jumpTimer.Start();
-        }
+			//setup for jump control
+			jumpRelease = false;
+			jumpTimer.Start();
+		}
 
-        //when the player releases the jump button swap over to the fast fall gravity
-        if (Input.IsActionJustReleased("jump")) {
-            if (!IsOnFloor()) {
-                //Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
-                jumpRelease = true;
-                velocity.y *= 0.6f;
-            }
-        }
-    }
+		//when the player releases the jump button swap over to the fast fall gravity
+		if (Input.IsActionJustReleased("jump")) {
+			if (!IsOnFloor()) {
+				//Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
+				jumpRelease = true;
+				velocity.y *= 0.6f;
+			}
+		}
+	}
 
-    //method for when the timer runs out. 
-    private void _on_JumpTimer_timeout() {
+	//method for when the timer runs out. 
+	private void _on_JumpTimer_timeout() {
 		//when the timer runs out flip the jumpRelease boolean so that the faster gravity is used instead
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
 		jumpRelease = true;

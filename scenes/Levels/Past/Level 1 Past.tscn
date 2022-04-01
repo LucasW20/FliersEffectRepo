@@ -1,17 +1,140 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://images/Background/Past/PastSky@4x.png" type="Texture" id=1]
+[ext_resource path="res://images/Background/Past/PastSky(Sherbert)@4x.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Prefabs/Environments/Past/Past Sidewalk Flat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Past Building BG.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Past Building 1 BG.tscn" type="PackedScene" id=5]
 
 [node name="L1 past" type="Node2D"]
 
 [node name="PastSky4x" type="Sprite" parent="."]
-position = Vector2( 21, 231 )
+position = Vector2( 6089, -2854 )
+scale = Vector2( 31.52, 3.99291 )
 z_index = -2
 texture = ExtResource( 1 )
 
-[node name="Past Sidewalk Flat" parent="." instance=ExtResource( 2 )]
-position = Vector2( -3698, 2352 )
+[node name="Platforms" type="Node" parent="."]
 
-[node name="Past Sidewalk Flat2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -2665, 2360 )
+[node name="Past Sidewalk Flat" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -3709, 2352 )
+
+[node name="Past Sidewalk Flat2" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -2685, 2352 )
+
+[node name="Past Sidewalk Flat3" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -1663, 2352 )
+
+[node name="Past Sidewalk Flat4" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -639, 2352 )
+
+[node name="Past Sidewalk Flat5" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 383, 2352 )
+
+[node name="Past Sidewalk Flat6" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 1407, 2352 )
+
+[node name="Past Sidewalk Flat7" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 2429, 2352 )
+
+[node name="Past Sidewalk Flat8" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 3453, 2352 )
+
+[node name="Past Sidewalk Flat9" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 4478, 2352 )
+
+[node name="Past Sidewalk Flat10" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 5502, 2352 )
+
+[node name="Past Sidewalk Flat11" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 6524, 2352 )
+
+[node name="Past Sidewalk Flat12" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 7548, 2352 )
+
+[node name="Past Sidewalk Flat13" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 8570, 2352 )
+
+[node name="Past Sidewalk Flat14" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 9594, 2352 )
+
+[node name="Past Sidewalk Flat15" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 10616, 2352 )
+
+[node name="Past Sidewalk Flat16" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 11640, 2352 )
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Past Building" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -3322, 1537 )
+z_index = -1
+
+[node name="Past Building2" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -3322, 128 )
+z_index = -1
+
+[node name="Past Building3" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -3322, -1275 )
+z_index = -1
+
+[node name="Past Building4" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -427, 1588 )
+z_index = -1
+
+[node name="Past Building5" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -427, 179 )
+z_index = -1
+
+[node name="Past Building6" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( -427, -1224 )
+z_index = -1
+
+[node name="Past Building7" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 1339, 1589 )
+z_index = -1
+
+[node name="Past Building8" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 1339, 180 )
+z_index = -1
+
+[node name="Past Building9" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 1339, -1223 )
+z_index = -1
+
+[node name="Past Building10" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 4828, 1586 )
+z_index = -1
+
+[node name="Past Building11" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 4828, 177 )
+z_index = -1
+
+[node name="Past Building12" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 4828, -1226 )
+z_index = -1
+
+[node name="Past Building13" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 6594, 1587 )
+z_index = -1
+
+[node name="Past Building14" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 6594, 178 )
+z_index = -1
+
+[node name="Past Building15" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 6594, -1225 )
+z_index = -1
+
+[node name="Past Building 1 BG" parent="Background" instance=ExtResource( 5 )]
+position = Vector2( 3061, 1531 )
+
+[node name="TempPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3936, 1777 )
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="TempPlayer"]
+position = Vector2( -136, 246 )
+z_index = 10
+current = true
+zoom = Vector2( 6, 6 )

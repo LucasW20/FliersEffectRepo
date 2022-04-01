@@ -34,10 +34,10 @@ public class Pause : Control
 	}
 
 	private void OnContinuePressed()
-    {
+	{
 		Console.WriteLine("Continue Pressed");
 		Pausing(false);
-    }
+	}
 
 	private void OnOptionsPressed()
 	{
@@ -61,7 +61,7 @@ public class Pause : Control
 	}
 
 	public void Pausing(bool pause)
-    {
+	{
 		PauseState = pause;
 		GetTree().Paused = PauseState;
 		Console.WriteLine("pause toggled");
