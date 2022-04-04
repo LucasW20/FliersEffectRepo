@@ -2,7 +2,7 @@
 
 [ext_resource path="res://images/Background/Past/Builiding1 DARKEND@4x.png" type="Texture" id=1]
 
-[node name="Past Building 1 BG" type="Node2D"]
+[node name="Past Building Door Top" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
