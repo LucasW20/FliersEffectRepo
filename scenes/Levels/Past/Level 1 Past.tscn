@@ -93,23 +93,23 @@ position = Vector2( -3322, -1275 )
 z_index = -1
 
 [node name="Past Building4" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( -427, 1588 )
+position = Vector2( -427, 1598 )
 z_index = -1
 
 [node name="Past Building5" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( -427, 179 )
+position = Vector2( -427, 188 )
 z_index = -1
 
 [node name="Past Building6" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( -427, -1224 )
+position = Vector2( -427, -1223 )
 z_index = -1
 
 [node name="Past Building7" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( 1339, 1589 )
+position = Vector2( 1338, 1598 )
 z_index = -1
 
 [node name="Past Building8" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( 1339, 180 )
+position = Vector2( 1339, 187 )
 z_index = -1
 
 [node name="Past Building9" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
@@ -117,15 +117,15 @@ position = Vector2( 1339, -1223 )
 z_index = -1
 
 [node name="Past Building10" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( 4828, 1586 )
+position = Vector2( 4828, 1587 )
 z_index = -1
 
 [node name="Past Building11" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( 4828, 177 )
+position = Vector2( 4828, 178 )
 z_index = -1
 
 [node name="Past Building12" parent="L1 past/Buildings2" instance=ExtResource( 4 )]
-position = Vector2( 4828, -1226 )
+position = Vector2( 4828, -1225 )
 z_index = -1
 
 [node name="Past Building13" parent="L1 past/Buildings2" instance=ExtResource( 4 )]

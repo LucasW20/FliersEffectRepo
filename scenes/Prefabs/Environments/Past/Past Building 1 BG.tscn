@@ -6,3 +6,11 @@
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+modulate = Color( 0.423529, 0.0196078, 0.192157, 1 )
+position = Vector2( 2.56091, 210.851 )
+scale = Vector2( 1.00168, 1.42273 )
+polygon = PoolVector2Array( -895, -527, 887, -525, 955.83, -603.665, -960.943, -598.042 )
