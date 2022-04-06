@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Temp/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Menus/Pause Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/InteractNPC.cs" type="Script" id=4]
 [ext_resource path="res://images/black.png" type="Texture" id=5]
 [ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
 [ext_resource path="res://scenes/Temp/TempEnemyMovement.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/Characters/Pasha.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 68.75 )
@@ -67,11 +69,37 @@ position = Vector2( 545, -4 )
 position = Vector2( 1227, 222 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -161, 240 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( -344, -125 )
 
-[node name="Camera2D" type="Camera2D" parent="TempPlayer"]
-current = true
+[node name="npc" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Pasha" type="Sprite" parent="npc"]
+position = Vector2( -956, 174 )
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="npc"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc/Area2D"]
+position = Vector2( 1013.44, -1.90735e-06 )
+scale = Vector2( 1.97672, 1 )
+polygon = PoolVector2Array( -1119.76, 1.90735e-06, -1121.78, 285, -845.058, 284, -845.058, 1 )
+
+[node name="npc2" type="Node2D" parent="."]
+position = Vector2( -414, -2 )
+
+[node name="Pasha" type="Sprite" parent="npc2"]
+position = Vector2( -956, 174 )
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="npc2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc2/Area2D"]
+polygon = PoolVector2Array( -959, 49, -995, 95, -1007, 286, -905, 295, -911, 91 )
 
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
+[connection signal="body_entered" from="npc/Area2D" to="npc" method="OnPlayerEnterNPCSPace"]
+[connection signal="body_exited" from="npc/Area2D" to="npc" method="OnPlayerExitNPCArea"]

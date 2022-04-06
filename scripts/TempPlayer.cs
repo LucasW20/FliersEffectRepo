@@ -20,7 +20,7 @@ public class TempPlayer : KinematicBody2D {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		maxSpeed = 2400;
+		maxSpeed = 4000;
 		timeTraveled = false;
 		jumpRelease = false;
 		velocity = new Vector2();
@@ -28,12 +28,13 @@ public class TempPlayer : KinematicBody2D {
 		jumpTimer = GetNode<Timer>("JumpTimer");
 		//jump = new JumpPhysics();
 
-		myNode.GetChild<AnimationPlayer>(3).Play("Running");
+		//myNode.GetChild<AnimationPlayer>(0).Play("Idle");
+		AnimationController.start(myNode);
 	}
 
 	//snap movement variables
 	private Vector2 FLOOR_NORMAL = Vector2.Up;
-	private const float SNAP_LENGTH = 32.0f;
+	private const float SNAP_LENGTH = 64.0f;
 	private Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
 	private float SLOPE_THRESH = 0.802851f;
 
@@ -60,10 +61,11 @@ public class TempPlayer : KinematicBody2D {
 	private void DirectionMovementPP(float delta) {
 		//walking input
 		if (Input.IsActionPressed("left")) {
+			AnimationController.playPlayerAnimation("Running");
 			if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
 					 //if the player swaps direction then maintain the momentum by swaping the velocity sign
-					velocity.x *= -1;
+					velocity.x *= -0.5f;
 				} else {
 					//apply speed
 					//velocity.x = velocity.x - acc * walkSpeed;
@@ -71,10 +73,11 @@ public class TempPlayer : KinematicBody2D {
 				}
 			}
 		} else if (Input.IsActionPressed("right")) {
+			AnimationController.playPlayerAnimation("Running");
 			if (velocity.x < maxSpeed) {
 				if (velocity.x < 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
-					velocity.x *= -1;
+					velocity.x *= -0.5f;
 				} else {
 					//apply speed
 					//velocity.x = velocity.x + acc * walkSpeed;
@@ -82,7 +85,8 @@ public class TempPlayer : KinematicBody2D {
 				}
 			}
 		} else {
-				velocity.x = 0;
+			velocity.x = 0;
+			AnimationController.playPlayerAnimation("Idle");
 		}
 
 		//time travel input
@@ -99,9 +103,9 @@ public class TempPlayer : KinematicBody2D {
 	}
 	
 	//gravity and jump variables
-	private const float NORMAL_GRAVITY = 1000;
-	private const  float FAST_FALL_GRAVITY = 4000;
-	private const float JUMP = -2750;
+	private const float NORMAL_GRAVITY = 4000;
+	private const  float FAST_FALL_GRAVITY = 16000;
+	private const float JUMP = -6000;
 	private bool jumpRelease;
 	private Timer jumpTimer;
 
@@ -160,4 +164,10 @@ public class TempPlayer : KinematicBody2D {
 		jumpRelease = true;
 		jumpTimer.Stop();
 	}
+
+	private void OnAnimationFinished(String anim_name) {
+		if (anim_name.Equals("JumpStart")) {
+			AnimationController.playPlayerAnimation("Jumping");
+        }
+    }
 }
