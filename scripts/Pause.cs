@@ -48,8 +48,7 @@ public class Pause : Control
 	{
 		Console.WriteLine("Restart Pressed");
 		Pausing(false);
-
-		GetTree().ChangeScene("res://scenes/MainScene.tscn");
+		GetTree().ReloadCurrentScene();
 	}
 
 	private void OnMainMenuPressed()
