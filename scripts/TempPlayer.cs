@@ -18,6 +18,8 @@ public class TempPlayer : KinematicBody2D {
 
 	public Vector2 velocity;
 
+	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		maxSpeed = 4000;
@@ -53,15 +55,21 @@ public class TempPlayer : KinematicBody2D {
 			snapVector = SNAP_LENGTH * Vector2.Down;
 		}
 
+		if (startJump) {
+			AnimationController.playPlayerAnimation("Jumping");
+			startJump = false;
+		}
+
 		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		//Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
 	}
 
+	private bool startJump = false;
 	private void DirectionMovementPP(float delta) {
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			AnimationController.playPlayerAnimation("Running");
+			if (IsOnFloor()) { AnimationController.playPlayerAnimation("Running"); }
 			if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
 					 //if the player swaps direction then maintain the momentum by swaping the velocity sign
@@ -73,7 +81,9 @@ public class TempPlayer : KinematicBody2D {
 				}
 			}
 		} else if (Input.IsActionPressed("right")) {
-			AnimationController.playPlayerAnimation("Running");
+			if (IsOnFloor()) {
+				AnimationController.playPlayerAnimation("Running");
+			}
 			if (velocity.x < maxSpeed) {
 				if (velocity.x < 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
@@ -86,7 +96,9 @@ public class TempPlayer : KinematicBody2D {
 			}
 		} else {
 			velocity.x = 0;
-			AnimationController.playPlayerAnimation("Idle");
+			if (IsOnFloor()) {
+				AnimationController.playPlayerAnimation("Idle");
+			}
 		}
 
 		//time travel input
@@ -145,6 +157,7 @@ public class TempPlayer : KinematicBody2D {
 			//setup for jump control
 			jumpRelease = false;
 			jumpTimer.Start();
+			startJump = true;
 		}
 
 		//when the player releases the jump button swap over to the fast fall gravity
@@ -163,11 +176,12 @@ public class TempPlayer : KinematicBody2D {
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
 		jumpRelease = true;
 		jumpTimer.Stop();
+		AnimationController.playPlayerAnimation("JumpFall");
 	}
 
 	private void OnAnimationFinished(String anim_name) {
-		if (anim_name.Equals("JumpStart")) {
-			AnimationController.playPlayerAnimation("Jumping");
-        }
+		//if (anim_name.Equals("JumpStart")) {
+		//	AnimationController.playPlayerAnimation("Jumping");
+  //      }
     }
 }
