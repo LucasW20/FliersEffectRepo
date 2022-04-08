@@ -16,10 +16,10 @@ public class MainMenu : Control
 	private void OnStartPressed()
 	{
 		Console.WriteLine("Start Button was pressed");
-		GetTree().ChangeScene("res://scenes/MainScene.tscn");
+		GetTree().ChangeScene("res://scenes/Levels/Past/Level 1 Past.tscn");
 	}
 
-	private void OnOptionsPressed()
+	private void OnOptionsPressed() 
 	{
 		Console.WriteLine("Options Button was pressed");
 	}

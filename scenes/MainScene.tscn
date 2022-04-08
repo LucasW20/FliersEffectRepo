@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Temp/TempPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Menus/Pause Menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/InteractNPC.cs" type="Script" id=4]
+[ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://images/black.png" type="Texture" id=5]
 [ext_resource path="res://scripts/ChangeScene.cs" type="Script" id=6]
-[ext_resource path="res://scenes/Temp/TempEnemyMovement.tscn" type="PackedScene" id=7]
-[ext_resource path="res://images/Characters/Pasha.png" type="Texture" id=8]
+[ext_resource path="res://scenes/EnemyMovement.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 68.75 )
@@ -16,8 +15,9 @@ extents = Vector2( 48, 68.75 )
 position = Vector2( 1, 0 )
 
 [node name="Ramp" parent="." instance=ExtResource( 2 )]
-position = Vector2( 269, 239 )
+position = Vector2( -242, -85 )
 rotation = -0.785398
+scale = Vector2( 5, 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ramp"]
 
@@ -27,79 +27,54 @@ polygon = PoolVector2Array( -95.4594, -33.2341, 221.324, -33.2341, 226.274, -28.
 
 [node name="Ground" parent="." instance=ExtResource( 2 )]
 position = Vector2( 618, 320 )
-scale = Vector2( 10, 1 )
+scale = Vector2( 20, 5 )
 
 [node name="Floater" parent="." instance=ExtResource( 2 )]
-position = Vector2( 615, 96 )
+position = Vector2( 1488, -800 )
+scale = Vector2( 5, 5 )
 
 [node name="EnemyBound1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1479, 236 )
+position = Vector2( 2400, -1711 )
 rotation = 1.5708
-scale = Vector2( 0.25, 1 )
+scale = Vector2( 5, 5 )
 
 [node name="EnemyBound2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 999, 232 )
+position = Vector2( 3132, -2223 )
 rotation = 1.5708
-scale = Vector2( 0.25, 1 )
+scale = Vector2( 5, 5 )
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 
 [node name="ExitObject" type="Node2D" parent="."]
+position = Vector2( 782, -227 )
+scale = Vector2( 5, 5 )
 script = ExtResource( 6 )
 
 [node name="Black" type="Sprite" parent="ExitObject"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 404, 622 )
+position = Vector2( 770.4, 299.6 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="ExitObject"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitObject/Area2D"]
-position = Vector2( 769, -7 )
 shape = SubResource( 1 )
 
 [node name="ExitTimer" type="Timer" parent="ExitObject"]
 wait_time = 0.05
 
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 545, -4 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1227, 222 )
+[node name="Enemy3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3211, -386 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -344, -125 )
+position = Vector2( -1195, -274 )
 
-[node name="npc" type="Node2D" parent="."]
-script = ExtResource( 4 )
+[node name="Camera2D" type="Camera2D" parent="TempPlayer"]
+current = true
+zoom = Vector2( 5, 5 )
 
-[node name="Pasha" type="Sprite" parent="npc"]
-position = Vector2( -956, 174 )
-scale = Vector2( 0.075, 0.075 )
-texture = ExtResource( 8 )
-
-[node name="Area2D" type="Area2D" parent="npc"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc/Area2D"]
-position = Vector2( 1013.44, -1.90735e-06 )
-scale = Vector2( 1.97672, 1 )
-polygon = PoolVector2Array( -1119.76, 1.90735e-06, -1121.78, 285, -845.058, 284, -845.058, 1 )
-
-[node name="npc2" type="Node2D" parent="."]
-position = Vector2( -414, -2 )
-
-[node name="Pasha" type="Sprite" parent="npc2"]
-position = Vector2( -956, 174 )
-scale = Vector2( 0.075, 0.075 )
-texture = ExtResource( 8 )
-
-[node name="Area2D" type="Area2D" parent="npc2"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc2/Area2D"]
-polygon = PoolVector2Array( -959, 49, -995, 95, -1007, 286, -905, 295, -911, 91 )
+[node name="npc2" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
-[connection signal="body_entered" from="npc/Area2D" to="npc" method="OnPlayerEnterNPCSPace"]
-[connection signal="body_exited" from="npc/Area2D" to="npc" method="OnPlayerExitNPCArea"]

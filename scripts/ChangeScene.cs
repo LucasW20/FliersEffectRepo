@@ -18,7 +18,7 @@ public class ChangeScene : Node {
 	}
 
 	//runs when the player enteres the area that exits the scene
-    private void OnBodyEntered(object body) {
+	private void OnBodyEntered(object body) {
 		if (body.GetType().Name.Equals("TempPlayer")) { //if the player and not another object enters the exit area
 			//Console.WriteLine("Entered Area");
 			//fade out the scene 
@@ -27,23 +27,23 @@ public class ChangeScene : Node {
 	}
 
 	//fades out the scene and then changes the scene
-    async private void FadeOut() {
-        fadeImage.Modulate = new Color(fadeImage.Modulate, 0); //make sure the alpha of the image is 0
+	async private void FadeOut() {
+		fadeImage.Modulate = new Color(fadeImage.Modulate, 0); //make sure the alpha of the image is 0
 
 		//loop to gradually change the the alpha value by 0.025 each iteration
-        for (float i = 0; i <= 1; i += 0.025f) {
+		for (float i = 0; i <= 1; i += 0.025f) {
 			//change the alpha
-            fadeImage.Modulate = new Color(fadeImage.Modulate, i);
-            Console.WriteLine(fadeImage.Modulate.a);
+			fadeImage.Modulate = new Color(fadeImage.Modulate, i);
+			Console.WriteLine(fadeImage.Modulate.a);
 
 			//wait for the timer to finish so the fade doesn't look instant. Timer takes 0.05 seconds to finish
-            exitTimer.Start();
-            await ToSignal(exitTimer, "timeout");
-        }
+			exitTimer.Start();
+			await ToSignal(exitTimer, "timeout");
+		}
 
 		//when the fade has completed actually change the scene
-        GetTree().ChangeScene("res://scenes/PrisonLevel.tscn");
-    }
+		GetTree().ChangeScene("");
+	}
 
 	private void OnExitTimerRunout() { } //do nothing
 }

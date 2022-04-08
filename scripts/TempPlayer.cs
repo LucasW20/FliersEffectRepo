@@ -7,18 +7,16 @@ using System;
  * @editor Jaden_Patten
  * @editor Jake_S
  * @start 3-7-2022
- * @version 3-30-2022
+ * @version 04-08-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private int acc = 40;
+	private const int acc = 40;
 	private float maxSpeed;
 	private bool timeTraveled;
 	private Node2D myNode;
-	//private JumpPhysics jump;
+	private bool flipDirection = false;
 
 	public Vector2 velocity;
-
-	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -36,9 +34,10 @@ public class TempPlayer : KinematicBody2D {
 
 	//snap movement variables
 	private Vector2 FLOOR_NORMAL = Vector2.Up;
-	private const float SNAP_LENGTH = 64.0f;
+	private const float SNAP_LENGTH = 128.0f;
 	private Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
-	private float SLOPE_THRESH = 0.802851f;
+	private const float SLOPE_THRESH = 0.802851f;
+	private const float SWAP_SPEED = 0.5f;
 
 	//runs physics checks every frame 
 	public override void _PhysicsProcess(float delta) {
@@ -56,10 +55,11 @@ public class TempPlayer : KinematicBody2D {
 		}
 
 		if (startJump) {
-			AnimationController.playPlayerAnimation("Jumping");
+			AnimationController.playPlayerAnimation("Jumping", flipDirection);
 			startJump = false;
 		}
 
+		myNode.GetNode<Sprite>(AnimationController.currentAnimationPlaying() + "Sprite").FlipH = flipDirection;
 		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		//Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
@@ -69,35 +69,39 @@ public class TempPlayer : KinematicBody2D {
 	private void DirectionMovementPP(float delta) {
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			if (IsOnFloor()) { AnimationController.playPlayerAnimation("Running"); }
+			if (IsOnFloor()) { 
+				AnimationController.playPlayerAnimation("Running", flipDirection);
+			}
 			if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
 					 //if the player swaps direction then maintain the momentum by swaping the velocity sign
-					velocity.x *= -0.5f;
+					velocity.x *= -SWAP_SPEED;
 				} else {
 					//apply speed
 					//velocity.x = velocity.x - acc * walkSpeed;
-					velocity.x = velocity.x - acc;
+					velocity.x -= acc;
 				}
 			}
+			flipDirection = true;
 		} else if (Input.IsActionPressed("right")) {
 			if (IsOnFloor()) {
-				AnimationController.playPlayerAnimation("Running");
+				AnimationController.playPlayerAnimation("Running", flipDirection);
 			}
 			if (velocity.x < maxSpeed) {
 				if (velocity.x < 0) { //check for swap
 					//if the player swaps direction then maintain the momentum by swaping the velocity sign
-					velocity.x *= -0.5f;
+					velocity.x *= -SWAP_SPEED;
 				} else {
 					//apply speed
 					//velocity.x = velocity.x + acc * walkSpeed;
-					velocity.x = velocity.x + acc;
+					velocity.x += acc;
 				}
 			}
+			flipDirection = false;
 		} else {
 			velocity.x = 0;
 			if (IsOnFloor()) {
-				AnimationController.playPlayerAnimation("Idle");
+				AnimationController.playPlayerAnimation("Idle", flipDirection);
 			}
 		}
 
@@ -120,6 +124,7 @@ public class TempPlayer : KinematicBody2D {
 	private const float JUMP = -6000;
 	private bool jumpRelease;
 	private Timer jumpTimer;
+	private bool notFalling = false;
 
 	/** There are two systems for a better jump.
 	* 1. Max Height. When the player reaches the maximum height of the jump (determined by the timer) gravity is
@@ -141,6 +146,7 @@ public class TempPlayer : KinematicBody2D {
 
 		if (IsOnFloor()) {
 			jumpRelease = false;
+			notFalling = false;
 		}
 
 		//When the player hits the ceiling make sure they don't dangle.
@@ -152,6 +158,7 @@ public class TempPlayer : KinematicBody2D {
 
 		//when the player presses the jump button while on the ground initiate the jump by changing the velocity
 		if (Input.IsActionJustPressed("jump") && IsOnFloor()) {
+			notFalling = true;
 			snapVector = Vector2.Zero;
 			velocity.y = JUMP;
 			//setup for jump control
@@ -161,12 +168,14 @@ public class TempPlayer : KinematicBody2D {
 		}
 
 		//when the player releases the jump button swap over to the fast fall gravity
-		if (Input.IsActionJustReleased("jump")) {
-			if (!IsOnFloor()) {
-				//Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
-				jumpRelease = true;
-				velocity.y *= 0.6f;
-			}
+		if (Input.IsActionJustReleased("jump") && !IsOnFloor()) {
+			//Console.WriteLine("Jump Input released! Switching to Fast Fall Gravity");
+			jumpRelease = true;
+			velocity.y *= 0.6f;
+		}
+
+		if (!IsOnFloor() && !notFalling) {
+			velocity.y += FAST_FALL_GRAVITY * delta;
 		}
 	}
 
@@ -176,12 +185,12 @@ public class TempPlayer : KinematicBody2D {
 		Console.WriteLine("JumpTimer Timeup! Switching to Fast Fall Gravity");
 		jumpRelease = true;
 		jumpTimer.Stop();
-		AnimationController.playPlayerAnimation("JumpFall");
+		AnimationController.playPlayerAnimation("JumpFall", flipDirection);
 	}
 
-	private void OnAnimationFinished(String anim_name) {
-		//if (anim_name.Equals("JumpStart")) {
-		//	AnimationController.playPlayerAnimation("Jumping");
-  //      }
-    }
+	//private void OnAnimationFinished(String anim_name) {
+	//	//if (anim_name.Equals("JumpStart")) {
+	//	//	AnimationController.playPlayerAnimation("Jumping");
+ // //      }
+	//}
 }
