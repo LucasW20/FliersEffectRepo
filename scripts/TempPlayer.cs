@@ -109,10 +109,10 @@ public class TempPlayer : KinematicBody2D {
 		if (Input.IsActionJustPressed("timetravel")) {
 			//Console.WriteLine("Pressed/n");
 			if (timeTraveled == false) { //if in the future then move to the past
-				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 300);
+				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 50000);
 				timeTraveled = true;
 			} else { //if in the past then move to the future
-				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 300);
+				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 50000);
 				timeTraveled = false;
 			}
 		}
