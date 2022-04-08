@@ -9,7 +9,7 @@ public class FollowPlayer : Node2D
         float speed = 100;
         float movement = speed * delta;
 
-        Vector2 moveDirection = player.Position;
+        Vector2 moveDirection = (player.Position - Position).Normalized() * speed;
         Position += moveDirection * movement;
 
         Sprite sprite = GetNode<Sprite>("AnimatedSprite");
