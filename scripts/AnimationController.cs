@@ -19,24 +19,30 @@ public static class AnimationController {
 		playerAni.Play("Idle");
 	}
 
+	//called by other methods to change the animation of the player. also passes a bool to determine whether or not to change direction
 	public static void playPlayerAnimation(string animationName, bool flipDirection) {
+		//make sure that there's a current animation
 		if (animationName.Equals(currAnimation)) { return; }
 		//Console.WriteLine("Start " + animationName);
 		
+		//try to change the animation will throw an exception if a invalid name is passed
 		try {
+			//sets the correct direction and visibility
 			playerNode.GetNode<Sprite>(currAnimation + "Sprite").Visible = false;
 			playerNode.GetNode<Sprite>(animationName + "Sprite").FlipH = flipDirection;
 			playerNode.GetNode<Sprite>(animationName + "Sprite").Visible = true;
 
+			//finally changes the current animation variable to the new one and plays the animation
 			currAnimation = animationName;
 			playerAni.Play(animationName);
 		} catch (NullReferenceException e) {
 			Console.WriteLine("Invalid Animation Name: ! " + animationName + "\n" + e.Message);
 		} catch (Exception e) {
-			Console.WriteLine("Unknown Exception Thrown! " + e.Message);
+			Console.WriteLine("Unexpected Exception Thrown! " + e.Message);
 		}
 	}
 
+	//getter for the current animation
 	public static string currentAnimationPlaying() {
 		return currAnimation;
 	}

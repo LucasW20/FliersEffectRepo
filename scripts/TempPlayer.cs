@@ -10,11 +10,12 @@ using System;
  * @version 04-08-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private const int acc = 40;
+	private const float acc = 40;
+	private const float dcc = 5;
 	private float maxSpeed;
 	private bool timeTraveled;
 	private Node2D myNode;
-	private bool flipDirection = false;
+	private bool flipDirection = false;	//true means facing left, false means facing right
 
 	public Vector2 velocity;
 
@@ -34,7 +35,7 @@ public class TempPlayer : KinematicBody2D {
 
 	//snap movement variables
 	private Vector2 FLOOR_NORMAL = Vector2.Up;
-	private const float SNAP_LENGTH = 128.0f;
+	private const float SNAP_LENGTH = 150.0f;
 	private Vector2 snapVector = SNAP_LENGTH * Vector2.Down;
 	private const float SLOPE_THRESH = 0.802851f;
 	private const float SWAP_SPEED = 0.5f;
@@ -60,7 +61,7 @@ public class TempPlayer : KinematicBody2D {
 		}
 
 		myNode.GetNode<Sprite>(AnimationController.currentAnimationPlaying() + "Sprite").FlipH = flipDirection;
-		//Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
+		Console.WriteLine("<" + velocity.x + ", " + velocity.y + ">");
 		//Console.WriteLine(jumpRelease);
 		//Console.WriteLine(onCurve);
 	}
@@ -69,9 +70,9 @@ public class TempPlayer : KinematicBody2D {
 	private void DirectionMovementPP(float delta) {
 		//walking input
 		if (Input.IsActionPressed("left")) {
-			if (IsOnFloor()) { 
-				AnimationController.playPlayerAnimation("Running", flipDirection);
-			}
+			if (IsOnFloor()) { AnimationController.playPlayerAnimation("Running", flipDirection); }
+
+
 			if (velocity.x > -maxSpeed) {
 				if (velocity.x > 0) { //check for swap
 					 //if the player swaps direction then maintain the momentum by swaping the velocity sign
@@ -81,7 +82,11 @@ public class TempPlayer : KinematicBody2D {
 					//velocity.x = velocity.x - acc * walkSpeed;
 					velocity.x -= acc;
 				}
-			}
+			} else if (velocity.x <= -maxSpeed) { //if the player has more speed than the max then apply deceleration 
+				velocity.x += dcc;
+            }
+
+			//change to facing left
 			flipDirection = true;
 		} else if (Input.IsActionPressed("right")) {
 			if (IsOnFloor()) {
@@ -96,7 +101,11 @@ public class TempPlayer : KinematicBody2D {
 					//velocity.x = velocity.x + acc * walkSpeed;
 					velocity.x += acc;
 				}
+			} else if (velocity.x >= maxSpeed) { //if the player has more speed than the max then apply deceleration 
+				velocity.x -= dcc;
 			}
+
+			//change to facing right
 			flipDirection = false;
 		} else {
 			velocity.x = 0;
@@ -187,10 +196,4 @@ public class TempPlayer : KinematicBody2D {
 		jumpTimer.Stop();
 		AnimationController.playPlayerAnimation("JumpFall", flipDirection);
 	}
-
-	//private void OnAnimationFinished(String anim_name) {
-	//	//if (anim_name.Equals("JumpStart")) {
-	//	//	AnimationController.playPlayerAnimation("Jumping");
- // //      }
-	//}
 }

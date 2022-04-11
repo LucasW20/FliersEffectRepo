@@ -178,11 +178,11 @@ position = Vector2( -5765, 2352 )
 position = Vector2( -4741, 2352 )
 
 [node name="TempPlayer" parent="L1 past" instance=ExtResource( 9 )]
-position = Vector2( -4534, 1589 )
+position = Vector2( -4910, 1746 )
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="L1 past/TempPlayer"]
-position = Vector2( -136, 246 )
+position = Vector2( 0, -662 )
 z_index = 10
 current = true
 zoom = Vector2( 6, 6 )
