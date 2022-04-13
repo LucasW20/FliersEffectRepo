@@ -7,7 +7,7 @@ using System;
  * @editor Jaden_Patten
  * @editor Jake_S
  * @start 3-7-2022
- * @version 04-08-2022
+ * @version 04-13-2022
  */
 public class TempPlayer : KinematicBody2D {
 	private const float acc = 40;
