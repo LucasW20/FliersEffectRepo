@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav-bf79d71d2bfb42edc8b502af7be1e3f7.sample"
+
+[deps]
+
+source_file="res://Audio/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav"
+dest_files=[ "res://.import/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav-bf79d71d2bfb42edc8b502af7be1e3f7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flier Effect Modern Music_1_4.8.2022.wav-906bf8d159036ddfb84961fa592f13c0.sample"
+
+[deps]
+
+source_file="res://Audio/Flier Effect Modern Music_1_4.8.2022.wav"
+dest_files=[ "res://.import/Flier Effect Modern Music_1_4.8.2022.wav-906bf8d159036ddfb84961fa592f13c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
