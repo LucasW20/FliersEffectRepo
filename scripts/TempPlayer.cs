@@ -7,7 +7,7 @@ using System;
  * @editor Jaden_Patten
  * @editor Jake_S
  * @start 3-7-2022
- * @version 04-13-2022
+ * @version 04-08-2022
  */
 public class TempPlayer : KinematicBody2D {
 	private const float acc = 40;
@@ -18,6 +18,9 @@ public class TempPlayer : KinematicBody2D {
 	private bool flipDirection = false;	//true means facing left, false means facing right
 
 	public Vector2 velocity;
+
+	private AudioStreamPlayer pastPlayer;
+	private AudioStreamPlayer futurePlayer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -31,6 +34,14 @@ public class TempPlayer : KinematicBody2D {
 
 		//myNode.GetChild<AnimationPlayer>(0).Play("Idle");
 		AnimationController.start(myNode);
+
+		//audio
+		pastPlayer = GetParent().GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		futurePlayer = GetParent().GetNode<AudioStreamPlayer>("AudioStreamPlayer2");
+		pastPlayer.SetVolumeDb(10);
+		pastPlayer.Play();
+		futurePlayer.SetVolumeDb(-10);
+		futurePlayer.Play();
 	}
 
 	//snap movement variables
@@ -117,12 +128,26 @@ public class TempPlayer : KinematicBody2D {
 		//time travel input
 		if (Input.IsActionJustPressed("timetravel")) {
 			//Console.WriteLine("Pressed/n");
+
+
 			if (timeTraveled == false) { //if in the future then move to the past
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 50000);
 				timeTraveled = true;
+				
+				//audio
+				futurePlayer.SetVolumeDb(10);
+				pastPlayer.SetVolumeDb(-10);
+				futurePlayer.Play();
+				
+
 			} else { //if in the past then move to the future
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 50000);
 				timeTraveled = false;
+				
+				//audio
+				pastPlayer.SetVolumeDb(10);
+				futurePlayer.SetVolumeDb(-10);
+				pastPlayer.Play();
 			}
 		}
 	}
