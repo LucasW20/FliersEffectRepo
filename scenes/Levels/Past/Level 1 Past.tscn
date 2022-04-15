@@ -2402,6 +2402,10 @@ position = Vector2( -1663, -49796 )
 position = Vector2( -15016, -4897 )
 shape = SubResource( 3 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="FutureRespawn" to="TempPlayer" method="FRespawn"]
 [connection signal="body_entered" from="PastRespawn" to="TempPlayer" method="PRespawn"]
 [connection signal="body_entered" from="ResetPlatformArea/Area2D" to="ResetPlatformArea" method="Reset"]
