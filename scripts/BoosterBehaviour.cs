@@ -13,6 +13,7 @@ public class BoosterBehaviour : Node {
     public void OnBodyEntered(Node body) {
         if (body.Name.Equals("TempPlayer")) { //ensure that that this singal was triggered by the player's body
             TempPlayer player = (TempPlayer) body;
+            player.testMeth();
 
             //check the direction of the player and apply the correct polarity
             if (player.velocity.x > 0) {

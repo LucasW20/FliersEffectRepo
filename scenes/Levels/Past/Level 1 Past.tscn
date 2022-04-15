@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Temp Assets/tempPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Temp Assets/tempPlatform.png" type="Texture" id=2]
@@ -23,10 +23,38 @@
 [ext_resource path="res://images/Background/Past/PastSky(Sherbert)@4x.png" type="Texture" id=21]
 [ext_resource path="res://images/Background/Future/Sky(Eeriee)@4x.png" type="Texture" id=22]
 [ext_resource path="res://scenes/Prefabs/Environments/Future/Prison.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Audio/Flier Effect Modern Music_1_4.8.2022.wav" type="AudioStream" id=24]
-[ext_resource path="res://Audio/Fliers Effect_Future_4.11.22.wav" type="AudioStream" id=25]
+[ext_resource path="res://Audio/Flier Effect Modern Music_1_4.8.2022.wav" type="AudioStream" id=25]
 
 [node name="Level 1" type="Node"]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2( -4910, 1746 )
+z_index = 10
+current = true
+zoom = Vector2( 6, 6 )
+limit_left = -20000
+limit_top = -30000
+limit_right = 50000
+limit_bottom = 2750
+editor_draw_screen = false
+editor_draw_limits = true
+
+[node name="FutureCamera" type="Camera2D" parent="."]
+position = Vector2( 1571, -57962 )
+z_index = 10
+zoom = Vector2( 6, 6 )
+limit_left = -20000
+limit_top = -70000
+limit_right = 47500
+limit_bottom = -45000
+editor_draw_limits = true
+
+[node name="TempPlayer" parent="." instance=ExtResource( 9 )]
+position = Vector2( -4910, 1746 )
+z_index = 1
+
+[node name="CameraPoint" type="RemoteTransform2D" parent="TempPlayer"]
+remote_path = NodePath("../../MainCamera")
 
 [node name="L1 past" type="Node2D" parent="."]
 
@@ -178,16 +206,6 @@ position = Vector2( -5765, 2352 )
 
 [node name="Past Sidewalk Flat25" parent="L1 past/Sidewalk 1" instance=ExtResource( 12 )]
 position = Vector2( -4741, 2352 )
-
-[node name="TempPlayer" parent="L1 past" instance=ExtResource( 9 )]
-position = Vector2( -4910, 1746 )
-z_index = 1
-
-[node name="Camera2D" type="Camera2D" parent="L1 past/TempPlayer"]
-position = Vector2( 0, -662 )
-z_index = 10
-current = true
-zoom = Vector2( 6, 6 )
 
 [node name="Pause" parent="L1 past" instance=ExtResource( 11 )]
 
@@ -594,12 +612,6 @@ position = Vector2( 19280, -9278 )
 
 [node name="Past Building no top" parent="L1 past" instance=ExtResource( 15 )]
 position = Vector2( -3322, 1531 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="L1 past"]
-stream = ExtResource( 24 )
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="L1 past"]
-stream = ExtResource( 25 )
 
 [node name="Map" type="Node2D" parent="."]
 visible = false
@@ -1249,3 +1261,9 @@ texture = ExtResource( 22 )
 
 [node name="Prison" parent="L1 future" instance=ExtResource( 23 )]
 position = Vector2( 42071, -6889 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
