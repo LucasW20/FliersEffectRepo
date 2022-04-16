@@ -18,7 +18,7 @@
 [ext_resource path="res://scenes/Prefabs/Environments/Future/Billboard  A.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/Prefabs/Environments/Past/Past Bars B.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/Prefabs/Environments/Past/Past Scaffolding B.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/Prefabs/Environments/Future/Future moving Platforms.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/Prefabs/Environments/Future/MovingPlatforms.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/Prefabs/Environments/Future/Future NC Building.tscn" type="PackedScene" id=20]
 [ext_resource path="res://images/Background/Past/PastSky(Sherbert)@4x.png" type="Texture" id=21]
 [ext_resource path="res://images/Background/Future/Sky(Eeriee)@4x.png" type="Texture" id=22]
@@ -2281,60 +2281,6 @@ scale = Vector2( 2.32, 1 )
 position = Vector2( -6030, -8226 )
 scale = Vector2( 2.32722, 1.19106 )
 
-[node name="Moving" type="Node2D" parent="L1 future"]
-position = Vector2( 15945, -3472 )
-
-[node name="MovingPlatforms" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( -24000, 361 )
-
-[node name="MovingPlatforms2" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( 12000, 361 )
-
-[node name="MovingPlatforms3" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( -18000, 361 )
-
-[node name="MovingPlatforms4" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( -12000, 362 )
-
-[node name="MovingPlatforms5" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( 6000, 361 )
-
-[node name="MovingPlatforms6" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( -6000, 361 )
-
-[node name="MovingPlatforms9" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( -30000, 361 )
-
-[node name="MovingPlatforms7" parent="L1 future/Moving" instance=ExtResource( 19 )]
-position = Vector2( 0, 361 )
-
-[node name="Moving2" type="Node2D" parent="L1 future"]
-position = Vector2( 15945, -7250 )
-
-[node name="MovingPlatforms" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( -30000, 361 )
-
-[node name="MovingPlatforms2" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( -24000, 361 )
-
-[node name="MovingPlatforms3" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( 12000, 361 )
-
-[node name="MovingPlatforms4" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( -18000, 361 )
-
-[node name="MovingPlatforms5" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( -12000, 361 )
-
-[node name="MovingPlatforms6" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( 6000, 361 )
-
-[node name="MovingPlatforms7" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( -6000, 361 )
-
-[node name="MovingPlatforms8" parent="L1 future/Moving2" instance=ExtResource( 19 )]
-position = Vector2( 0, 361 )
-
 [node name="Billboards" type="Node2D" parent="L1 future"]
 
 [node name="Billboard  A" parent="L1 future/Billboards" instance=ExtResource( 16 )]
@@ -2372,6 +2318,60 @@ texture = ExtResource( 22 )
 
 [node name="Prison" parent="L1 future" instance=ExtResource( 23 )]
 position = Vector2( 42071, -6889 )
+
+[node name="MovingPlatforms" type="Node2D" parent="L1 future"]
+position = Vector2( 15945, -3472 )
+
+[node name="Future moving Platforms" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -29998, 362 )
+
+[node name="Future moving Platforms2" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -23994, 362 )
+
+[node name="Future moving Platforms3" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -18000, 362 )
+
+[node name="Future moving Platforms4" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -11996, 362 )
+
+[node name="Future moving Platforms5" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -6030, 362 )
+
+[node name="Future moving Platforms6" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( -26, 362 )
+
+[node name="Future moving Platforms7" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( 6000, 361 )
+
+[node name="Future moving Platforms8" parent="L1 future/MovingPlatforms" instance=ExtResource( 19 )]
+position = Vector2( 12004, 361 )
+
+[node name="MovingPlatforms2" type="Node2D" parent="L1 future"]
+position = Vector2( 15945, -7222 )
+
+[node name="Future moving Platforms" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -29998, 362 )
+
+[node name="Future moving Platforms2" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -23994, 362 )
+
+[node name="Future moving Platforms3" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -18000, 362 )
+
+[node name="Future moving Platforms4" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -11996, 362 )
+
+[node name="Future moving Platforms5" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -6030, 362 )
+
+[node name="Future moving Platforms6" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( -26, 362 )
+
+[node name="Future moving Platforms7" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( 6000, 361 )
+
+[node name="Future moving Platforms8" parent="L1 future/MovingPlatforms2" instance=ExtResource( 19 )]
+position = Vector2( 12004, 361 )
 
 [node name="FutureRespawn" type="Area2D" parent="."]
 position = Vector2( -1663, -49796 )
