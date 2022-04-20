@@ -51,7 +51,7 @@ extents = Vector2( 2518.19, 118.25 )
 [node name="Level 1" type="Node"]
 
 [node name="TempPlayer" parent="." instance=ExtResource( 9 )]
-position = Vector2( -4956, 1607 )
+position = Vector2( -4960, 1725 )
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="TempPlayer"]
@@ -59,6 +59,7 @@ position = Vector2( 0, -662 )
 z_index = 10
 current = true
 zoom = Vector2( 6, 6 )
+limit_bottom = 3000
 
 [node name="TempPlayer2" type="Sprite" parent="."]
 position = Vector2( 6444, -52044 )

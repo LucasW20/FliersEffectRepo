@@ -3,9 +3,9 @@
 [ext_resource path="res://scripts/TempPlayer.cs" type="Script" id=1]
 [ext_resource path="res://images/PlayerAnimations/Idle_Spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://images/PlayerAnimations/Run_Spritesheet.png" type="Texture" id=3]
-[ext_resource path="res://images/PlayerAnimations/JumpFall_Spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://images/Jump_Spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://images/PlayerAnimations/JumpStart_Spritesheet.png" type="Texture" id=5]
-[ext_resource path="res://images/PlayerAnimations/JumpAir_Spritesheet.png" type="Texture" id=6]
+[ext_resource path="res://images/Fall_Spritesheet.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
@@ -26,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "JumpFall"
-length = 0.32
+length = 0.35
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("JumpFallSprite:frame")
@@ -35,10 +35,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -68,10 +68,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -173,13 +173,11 @@ polygon = PoolVector2Array( -8, -107.125, -34, 100.5, 40, 99.125, 15.25, -107.37
 [node name="RunningSprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 4, 3 )
-scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 3 )
 hframes = 4
 vframes = 3
 
 [node name="IdleSprite" type="Sprite" parent="."]
-scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 2
@@ -194,15 +192,13 @@ hframes = 3
 
 [node name="JumpFallSprite" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 hframes = 2
-vframes = 2
 
 [node name="JumpingSprite" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 hframes = 2
-vframes = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]

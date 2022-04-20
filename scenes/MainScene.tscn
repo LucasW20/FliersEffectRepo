@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Temp/TempPlatform.tscn" type="PackedScene" id=2]
@@ -9,12 +9,174 @@
 [ext_resource path="res://scenes/EnemyMovement.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Booster.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Temp Assets/tempPlatform.png" type="Texture" id=9]
+[ext_resource path="res://scripts/InteractNPC.cs" type="Script" id=10]
+[ext_resource path="res://images/Characters/Morpho_IdleSpritesheet.png" type="Texture" id=11]
+[ext_resource path="res://images/Characters/Skipper_IdleSpritesheet.png" type="Texture" id=12]
+[ext_resource path="res://images/Characters/Alcon_IdleSpritesheet.png" type="Texture" id=13]
+[ext_resource path="res://images/Characters/Danube_IdleSpritesheet.png" type="Texture" id=14]
+[ext_resource path="res://images/Characters/Kite_IdleSpritesheet.png" type="Texture" id=15]
+[ext_resource path="res://scenes/PashaNPC.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 217.5, 35 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 68.75 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "IdleMorpho"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "IdleMorpho"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "IdleMorpho"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "IdleMorpho"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "IdleMorpho"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -84,17 +246,126 @@ wait_time = 0.05
 [node name="Enemy3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3211, -386 )
 
+[node name="Booster" parent="." instance=ExtResource( 8 )]
+
+[node name="SkipperNPC" type="Node2D" parent="."]
+position = Vector2( -19130, -233 )
+script = ExtResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="SkipperNPC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SkipperNPC/Area2D"]
+polygon = PoolVector2Array( -7, -422, -107, -136, -86, 394, 107, 392, 97, -125 )
+
+[node name="Sprite" type="Sprite" parent="SkipperNPC"]
+texture = ExtResource( 12 )
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SkipperNPC"]
+anims/IdleMorpho = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="DanubeNPC" type="Node2D" parent="."]
+position = Vector2( -19372, -216 )
+script = ExtResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="DanubeNPC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DanubeNPC/Area2D"]
+polygon = PoolVector2Array( -7, -422, -107, -136, -86, 394, 107, 392, 97, -125 )
+
+[node name="Sprite" type="Sprite" parent="DanubeNPC"]
+texture = ExtResource( 14 )
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DanubeNPC"]
+anims/IdleMorpho = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="AlconNPC" type="Node2D" parent="."]
+position = Vector2( -18344, -226 )
+script = ExtResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="AlconNPC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlconNPC/Area2D"]
+polygon = PoolVector2Array( -7, -422, -107, -136, -86, 394, 107, 392, 97, -125 )
+
+[node name="Sprite" type="Sprite" parent="AlconNPC"]
+texture = ExtResource( 13 )
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AlconNPC"]
+anims/IdleMorpho = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[node name="NPC" parent="." instance=ExtResource( 4 )]
+position = Vector2( -17728, 681 )
+scale = Vector2( 1, 1 )
+
+[node name="PashaNPC" parent="." instance=ExtResource( 16 )]
+position = Vector2( -17929, -213 )
+
+[node name="MorphoNPC" type="Node2D" parent="."]
+position = Vector2( -18608, -226 )
+script = ExtResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="MorphoNPC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MorphoNPC/Area2D"]
+polygon = PoolVector2Array( -7, -422, -107, -136, -86, 394, 107, 392, 97, -125 )
+
+[node name="Sprite" type="Sprite" parent="MorphoNPC"]
+texture = ExtResource( 11 )
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MorphoNPC"]
+anims/IdleMorpho = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
 [node name="TempPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( -18940, -350 )
+position = Vector2( -18880, -230 )
 
 [node name="Camera2D" type="Camera2D" parent="TempPlayer"]
+position = Vector2( 10, 44 )
 current = true
 zoom = Vector2( 5, 5 )
 
-[node name="Booster" parent="." instance=ExtResource( 8 )]
+[node name="KiteNPC" type="Node2D" parent="."]
+position = Vector2( -19609, -214 )
+script = ExtResource( 10 )
 
-[node name="NPC" parent="." instance=ExtResource( 4 )]
-position = Vector2( -13693, -300 )
+[node name="Area2D" type="Area2D" parent="KiteNPC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KiteNPC/Area2D"]
+polygon = PoolVector2Array( -7, -422, -107, -136, -86, 394, 107, 392, 97, -125 )
+
+[node name="Sprite" type="Sprite" parent="KiteNPC"]
+texture = ExtResource( 15 )
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KiteNPC"]
+anims/IdleMorpho = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
+[connection signal="body_entered" from="SkipperNPC/Area2D" to="SkipperNPC" method="OnPlayerEnterNPCSpace"]
+[connection signal="body_exited" from="SkipperNPC/Area2D" to="SkipperNPC" method="OnPlayerExitNPCArea"]
+[connection signal="body_entered" from="DanubeNPC/Area2D" to="DanubeNPC" method="OnPlayerEnterNPCSpace"]
+[connection signal="body_exited" from="DanubeNPC/Area2D" to="DanubeNPC" method="OnPlayerExitNPCArea"]
+[connection signal="body_entered" from="AlconNPC/Area2D" to="AlconNPC" method="OnPlayerEnterNPCSpace"]
+[connection signal="body_exited" from="AlconNPC/Area2D" to="AlconNPC" method="OnPlayerExitNPCArea"]
+[connection signal="body_entered" from="MorphoNPC/Area2D" to="MorphoNPC" method="OnPlayerEnterNPCSpace"]
+[connection signal="body_exited" from="MorphoNPC/Area2D" to="MorphoNPC" method="OnPlayerExitNPCArea"]
+[connection signal="body_entered" from="KiteNPC/Area2D" to="KiteNPC" method="OnPlayerEnterNPCSpace"]
+[connection signal="body_exited" from="KiteNPC/Area2D" to="KiteNPC" method="OnPlayerExitNPCArea"]

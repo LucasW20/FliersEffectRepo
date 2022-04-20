@@ -6,11 +6,11 @@ using System;
  * @author Lucas_C_Wright
  * @editor Jaden_Patten
  * @editor Jake_S
- * @start 3-7-2022
- * @version 04-13-2022
+ * @start 03-07-2022
+ * @version 04-20-2022
  */
 public class TempPlayer : KinematicBody2D {
-	private const float acc = 40;
+	private const float acc = 80;
 	private const float dcc = 5;
 	private float maxSpeed;
 	private bool timeTraveled;
