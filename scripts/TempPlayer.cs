@@ -19,6 +19,9 @@ public class TempPlayer : KinematicBody2D {
 
 	public Vector2 velocity;
 
+	private AudioStreamPlayer pastPlayer;
+	private AudioStreamPlayer futurePlayer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		maxSpeed = 4000;
@@ -31,6 +34,14 @@ public class TempPlayer : KinematicBody2D {
 
 		//myNode.GetChild<AnimationPlayer>(0).Play("Idle");
 		AnimationController.start(myNode);
+
+		//audio
+		pastPlayer = GetParent().GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		futurePlayer = GetParent().GetNode<AudioStreamPlayer>("AudioStreamPlayer2");
+		pastPlayer.VolumeDb = 10;
+		pastPlayer.Play();
+		futurePlayer.VolumeDb = 0;
+		futurePlayer.Play();
 	}
 
 	//snap movement variables
@@ -120,9 +131,17 @@ public class TempPlayer : KinematicBody2D {
 			if (timeTraveled == false) { //if in the future then move to the past
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 50000);
 				timeTraveled = true;
+				//audio
+				futurePlayer.VolumeDb = 10;
+				pastPlayer.VolumeDb = -10;
+				futurePlayer.Play();
 			} else { //if in the past then move to the future
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 50000);
 				timeTraveled = false;
+				//audio
+				pastPlayer.VolumeDb = 10;
+				futurePlayer.VolumeDb = -10;
+				pastPlayer.Play();
 			}
 		}
 	}

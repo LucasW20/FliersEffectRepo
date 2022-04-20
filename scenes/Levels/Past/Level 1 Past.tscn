@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Temp Assets/tempPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Temp Assets/tempPlatform.png" type="Texture" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://images/Background/Future/Sky(Eeriee)@4x.png" type="Texture" id=22]
 [ext_resource path="res://scenes/Prefabs/Environments/Future/Prison.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scripts/PlatformResetV2.cs" type="Script" id=24]
+[ext_resource path="res://Audio/Flier Effect Modern Music_1_4.8.2022.wav" type="AudioStream" id=25]
+[ext_resource path="res://Audio/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav" type="AudioStream" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39365.5, 1095.5 )
@@ -2470,8 +2472,10 @@ position = Vector2( -15016, -4897 )
 shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
 
 [node name="NextLevel" type="Area2D" parent="."]
 
