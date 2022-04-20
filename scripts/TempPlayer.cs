@@ -216,4 +216,16 @@ public class TempPlayer : KinematicBody2D {
 		}
 
 	}
+
+	//Past Checkpoint
+	private void PCheckpoint(object body)
+    {
+		myNode.Position = new Vector2(14275, -5227);
+    }
+
+	//Future Checkpoint
+	private void FCheckpoint(object body)
+	{
+		myNode.Position = new Vector2(-8321, -70233);
+	}
 }

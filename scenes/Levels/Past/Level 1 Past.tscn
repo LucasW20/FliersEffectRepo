@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Temp Assets/tempPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Temp Assets/tempPlatform.png" type="Texture" id=2]
@@ -28,16 +28,28 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39365.5, 1095.5 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 355, 1642.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15103, 310.5 )
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3950.5, 9983 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 952.5, 6824 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 620.5, 746.875 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2518.19, 118.25 )
+
 [node name="Level 1" type="Node"]
 
 [node name="TempPlayer" parent="." instance=ExtResource( 9 )]
-position = Vector2( -4910, 1746 )
+position = Vector2( -4956, 1607 )
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="TempPlayer"]
@@ -615,6 +627,42 @@ position = Vector2( 33692, 2459 )
 [node name="Past Bars B65" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
 position = Vector2( 33692, 1339 )
 
+[node name="Past Bars A75" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -12606 )
+
+[node name="Past Bars A76" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -13727 )
+
+[node name="Past Bars B77" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -10383 )
+
+[node name="Past Bars B78" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -11503 )
+
+[node name="Past Bars A77" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -8159 )
+
+[node name="Past Bars A78" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -9280 )
+
+[node name="Past Bars B79" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -5936 )
+
+[node name="Past Bars B80" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -7056 )
+
+[node name="Past Bars A79" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -3776 )
+
+[node name="Past Bars A80" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -4897 )
+
+[node name="Past Bars B81" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -1553 )
+
+[node name="Past Bars B82" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -2673 )
+
 [node name="Past Bars A65" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
 position = Vector2( 30570, -3587 )
 
@@ -652,7 +700,7 @@ position = Vector2( 15113, 1914 )
 position = Vector2( 15113, 794 )
 
 [node name="Scaffolding Platform" type="Node2D" parent="L1 past"]
-position = Vector2( 2, 0 )
+position = Vector2( 2, 40 )
 
 [node name="Past Scaffolding B" parent="L1 past/Scaffolding Platform" instance=ExtResource( 18 )]
 position = Vector2( 15112, -310 )
@@ -704,6 +752,12 @@ position = Vector2( 867, -139 )
 
 [node name="Past Scaffolding Ramp2" parent="L1 past/Scaffolding Platform/Past Scaffolding Ramp2" instance=ExtResource( 7 )]
 position = Vector2( 2535, -735 )
+
+[node name="Past Scaffolding B3" parent="L1 past/Scaffolding Platform" instance=ExtResource( 18 )]
+position = Vector2( 12586, -7052 )
+
+[node name="Past Scaffolding B4" parent="L1 past/Scaffolding Platform" instance=ExtResource( 18 )]
+position = Vector2( 13426, -7052 )
 
 [node name="Dirt" type="Node2D" parent="L1 past"]
 
@@ -1744,7 +1798,7 @@ position = Vector2( 26948, -3110 )
 position = Vector2( 24801, -5826 )
 
 [node name="Past Thick Girder3" parent="L1 past" instance=ExtResource( 4 )]
-position = Vector2( 21878, -7587 )
+position = Vector2( 21643, -7232 )
 
 [node name="Past Thick Girder4" parent="L1 past" instance=ExtResource( 4 )]
 position = Vector2( 19280, -9278 )
@@ -2073,7 +2127,7 @@ position = Vector2( -6030, -8226 )
 scale = Vector2( 2.32722, 1.19106 )
 
 [node name="Building4" type="Node2D" parent="L1 future/Buildings"]
-position = Vector2( 12476, -10479 )
+position = Vector2( 11443, -9994 )
 
 [node name="Future NC Building" parent="L1 future/Buildings/Building4" instance=ExtResource( 20 )]
 position = Vector2( -6026, 12063 )
@@ -2290,10 +2344,10 @@ position = Vector2( -10221, -5026 )
 position = Vector2( -10221, -5026 )
 
 [node name="Billboard  A2" parent="L1 future/Billboards" instance=ExtResource( 16 )]
-position = Vector2( -9345, -9837 )
+position = Vector2( -9842, -9837 )
 
 [node name="Billboard  A3" parent="L1 future/Billboards" instance=ExtResource( 16 )]
-position = Vector2( -11917, -11697 )
+position = Vector2( -12414, -11697 )
 
 [node name="Billboard  A4" parent="L1 future/Billboards" instance=ExtResource( 16 )]
 position = Vector2( -8055, -12447 )
@@ -2308,7 +2362,10 @@ position = Vector2( -9345, -15224 )
 position = Vector2( -11596, -17323 )
 
 [node name="Billboard  A8" parent="L1 future/Billboards" instance=ExtResource( 16 )]
-position = Vector2( 10616, -18190 )
+position = Vector2( 10443, -19662 )
+
+[node name="Billboard  A10" parent="L1 future/Billboards" instance=ExtResource( 16 )]
+position = Vector2( 13893, -21048 )
 
 [node name="PastSky4x" type="Sprite" parent="L1 future"]
 position = Vector2( 6734, -4025 )
@@ -2386,6 +2443,16 @@ shape = SubResource( 1 )
 position = Vector2( 14657, 5764 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PastRespawn"]
+position = Vector2( 14704, 2968 )
+shape = SubResource( 5 )
+
+[node name="PastCheckpoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastCheckpoint"]
+position = Vector2( 30574, 3177 )
+shape = SubResource( 4 )
+
 [node name="ResetPlatformArea" type="Node2D" parent="."]
 script = ExtResource( 24 )
 
@@ -2406,7 +2473,35 @@ shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 
+[node name="NextLevel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2( 42272.5, -60429.9 )
+shape = SubResource( 6 )
+
+[node name="FutureCheckpoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FutureCheckpoint"]
+position = Vector2( -4436, -66486 )
+rotation = 0.785397
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="FutureCheckpoint"]
+position = Vector2( 1773, -65539 )
+rotation = -0.261799
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="FutureCheckpoint"]
+position = Vector2( 7763, -61600 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="FutureCheckpoint"]
+position = Vector2( 16747, -61600 )
+shape = SubResource( 7 )
+
 [connection signal="body_entered" from="FutureRespawn" to="TempPlayer" method="FRespawn"]
 [connection signal="body_entered" from="PastRespawn" to="TempPlayer" method="PRespawn"]
+[connection signal="body_entered" from="PastCheckpoint" to="TempPlayer" method="PCheckpoint"]
 [connection signal="body_entered" from="ResetPlatformArea/Area2D" to="ResetPlatformArea" method="Reset"]
 [connection signal="body_entered" from="FutureRespawn2" to="TempPlayer" method="FRespawn"]
+[connection signal="body_entered" from="FutureCheckpoint" to="TempPlayer" method="FCheckpoint"]
