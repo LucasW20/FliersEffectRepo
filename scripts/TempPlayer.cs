@@ -13,7 +13,7 @@ public class TempPlayer : KinematicBody2D {
 	private const float acc = 80;
 	private const float dcc = 5;
 	private float maxSpeed;
-	private bool timeTraveled;
+	public bool timeTraveled;
 	private Node2D myNode;
 	private bool flipDirection = false;	//true means facing left, false means facing right
 
@@ -243,8 +243,22 @@ public class TempPlayer : KinematicBody2D {
     }
 
 	//Future Checkpoint
+	//private void FCheckpoint(object body,Vector2 Argument_1)
 	private void FCheckpoint(object body)
 	{
 		myNode.Position = new Vector2(-8321, -70233);
+		//myNode.Position = Argument_1;
+	}
+
+	//level 2 spawn
+	public void L2StartSpawn()
+    {
+		myNode.Position = new Vector2(22671, -10740);
+    }
+
+	//Level 2 Checkpoint
+	public void L2Checkpoint()
+	{
+		myNode.Position = new Vector2(20231, 15322);
 	}
 }

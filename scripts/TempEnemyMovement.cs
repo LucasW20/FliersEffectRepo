@@ -12,7 +12,7 @@ public class TempEnemyMovement : KinematicBody2D
 
 	private Vector2 velocity;
 	private int gravity = 200;
-	private int speed = 100;
+	private int speed = 500;
 
 	public override void _Ready()
 	{
@@ -60,8 +60,9 @@ public class TempEnemyMovement : KinematicBody2D
 	{
 		if (body is TempPlayer)
 		{
-			TempPlayer player = body as TempPlayer;
-			player.GetTree().ReloadCurrentScene();
+			TempPlayer player = (TempPlayer)body;
+			player.L2Checkpoint();
+			//player.GetTree().ReloadCurrentScene();
 		}
 	}
 }

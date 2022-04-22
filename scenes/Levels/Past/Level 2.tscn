@@ -1,14 +1,1192 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://images/Background/Factory/factoryWallBig.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/FactFloor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerPappilio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Prefabs/Environments/Future/Prison/PrisonPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Prefabs/Environments/Future/Prison/Lasers.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Prefabs/Environments/Future/Prison/VentLasers.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/Conveyor Belt.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Flier Effect Modern Music_1_4.8.2022.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/Fan.tscn" type="PackedScene" id=10]
+[ext_resource path="res://images/Background/Prison/BackgroundTile1@4x.png" type="Texture" id=11]
+[ext_resource path="res://images/Background/Prison/backgroundTile3@4x.png" type="Texture" id=12]
+[ext_resource path="res://images/Background/Prison/backgroundTile0@4x.png" type="Texture" id=13]
+[ext_resource path="res://images/Background/Prison/backgroundTile2@4x.png" type="Texture" id=14]
+[ext_resource path="res://scenes/Prefabs/Environments/Future/Prison/PrisonFloor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/Concrete.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/EnemyMovement.tscn" type="PackedScene" id=17]
 
 [node name="Level 2" type="Node2D"]
 
 [node name="PastFactory" type="Node2D" parent="."]
+position = Vector2( 0, -50000 )
 
 [node name="FactoryWallBig" type="Sprite" parent="PastFactory"]
-position = Vector2( -72, -51 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 12, 12 )
+z_index = -2
 texture = ExtResource( 1 )
 
+[node name="Building" type="Node2D" parent="PastFactory"]
+
+[node name="Floor" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 5338, 12188 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor9" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 21339, 12188 )
+
+[node name="FactFloor" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor9" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor2" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 25237, 8106 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor2" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor7" type="Node2D" parent="PastFactory/Building/Floor2"]
+position = Vector2( -16069, -1.03516 )
+
+[node name="FactFloor" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor2/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor7" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 22915, 8106 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor7" type="Node2D" parent="PastFactory/Building/Floor7"]
+position = Vector2( -16069, -1.03516 )
+
+[node name="FactFloor" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor7/Floor7" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor3" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 28105, 8081 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor3" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor8" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 28106, -7988 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor8" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor4" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 7710, 10895 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor4" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor10" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 7710, -5185 )
+rotation = 1.57079
+
+[node name="FactFloor" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -9650, 4012 )
+
+[node name="FactFloor2" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -8642, 4012 )
+
+[node name="FactFloor3" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -7630, 4012 )
+
+[node name="FactFloor4" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -6622, 4012 )
+
+[node name="FactFloor5" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -5657, 4012 )
+
+[node name="FactFloor6" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -4649, 4012 )
+
+[node name="FactFloor7" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -3637, 4012 )
+
+[node name="FactFloor8" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -2629, 4012 )
+
+[node name="FactFloor9" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -1621, 4012 )
+
+[node name="FactFloor10" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( -613, 4012 )
+
+[node name="FactFloor11" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 399, 4012 )
+
+[node name="FactFloor12" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 1407, 4012 )
+
+[node name="FactFloor13" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 2372, 4012 )
+
+[node name="FactFloor14" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 3380, 4012 )
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor10" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Floor6" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( 31099, 10207 )
+rotation = 1.57079
+
+[node name="FactFloor15" parent="PastFactory/Building/Floor6" instance=ExtResource( 2 )]
+position = Vector2( 4392, 4012 )
+scale = Vector2( 1.16, 1 )
+
+[node name="FactFloor16" parent="PastFactory/Building/Floor6" instance=ExtResource( 2 )]
+position = Vector2( 5400, 4012 )
+
+[node name="Concrete" type="Node2D" parent="PastFactory/Building"]
+position = Vector2( -146, -39 )
+
+[node name="Concrete" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, 12227 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete2" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, 8608 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete3" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, 5000 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete4" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, 1471 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete5" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, -1875 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete6" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, -5419 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete7" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, -8941 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete8" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, -12562 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete9" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 20200, -16078 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete28" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, 14793 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete29" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, 11174 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete30" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, 7566 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete31" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, 4037 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete32" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, 690.999 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete33" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, -2853 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete34" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, -6375 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete35" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, -9996 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete36" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 2591, -13512 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete10" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, 12227 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete37" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 29168, 15199 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete38" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 29168, 17615 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete39" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25655, 17615 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete40" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 22367, 17595 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete41" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 18854, 17595 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete42" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 15438, 17575 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete43" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 11925, 17575 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete44" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 8419, 17524 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete45" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 4906, 17524 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete46" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 1863, 17524 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete47" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -1650, 17524 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete11" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, 8608 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete12" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, 5000 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete13" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, 1471 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete14" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, -1875 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete15" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, -5419 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete16" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, -8941 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete17" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, -12562 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete18" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 25378, -16078 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete19" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, 12227 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete20" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, 8608 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete21" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, 5000 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete22" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, 1471 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete23" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, -1875 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete24" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, -5419 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete25" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, -8941 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete26" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, -12562 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete27" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( 27898, -16078 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Conveyors" type="Node2D" parent="PastFactory"]
+
+[node name="ConveyorBelt" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( -771, 0 )
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="ConveyorBelt4" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( 2707, -12601 )
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt4" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="ConveyorBelt5" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( -4312, -14598 )
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt5" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="ConveyorBelt6" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( 2707, -23963 )
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt6" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="ConveyorBelt2" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( 2197, -8136 )
+rotation = 0.523598
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt2" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="ConveyorBelt3" type="Node2D" parent="PastFactory/Conveyors"]
+position = Vector2( -6828, 308.999 )
+rotation = -0.523598
+
+[node name="Conveyor Belt" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 15680, 14232 )
+
+[node name="Conveyor Belt2" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 14662, 14232 )
+
+[node name="Conveyor Belt3" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 13645, 14232 )
+
+[node name="Conveyor Belt4" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 12627, 14232 )
+
+[node name="Conveyor Belt5" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 11614, 14232 )
+
+[node name="Conveyor Belt6" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 10596, 14232 )
+
+[node name="Conveyor Belt7" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 9579, 14232 )
+
+[node name="Conveyor Belt8" parent="PastFactory/Conveyors/ConveyorBelt3" instance=ExtResource( 7 )]
+position = Vector2( 8561, 14232 )
+
+[node name="Fans" type="Node2D" parent="PastFactory"]
+
+[node name="Fan" parent="PastFactory/Fans" instance=ExtResource( 10 )]
+position = Vector2( 22777, -4268 )
+scale = Vector2( 3.84, 1 )
+
+[node name="Fan3" parent="PastFactory/Fans" instance=ExtResource( 10 )]
+position = Vector2( 22790, 6700 )
+scale = Vector2( 3.84, 1 )
+
 [node name="FuturePrison" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="FuturePrison"]
+
+[node name="PrisonPlatform" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 22726, -9920 )
+
+[node name="PrisonPlatform2" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 16342, 3237 )
+
+[node name="PrisonPlatform19" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 15334, 3237 )
+
+[node name="PrisonPlatform3" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 11879, 10090 )
+
+[node name="PrisonPlatform4" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 12874, 10090 )
+
+[node name="PrisonPlatform5" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 13811, 10090 )
+
+[node name="PrisonPlatform6" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 14717, 10090 )
+
+[node name="PrisonPlatform7" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 14909, 7991 )
+
+[node name="PrisonPlatform8" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 15904, 7991 )
+
+[node name="PrisonPlatform9" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 16841, 7991 )
+
+[node name="PrisonPlatform10" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 17747, 7991 )
+
+[node name="PrisonPlatform11" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 6233, 3063 )
+
+[node name="PrisonPlatform12" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 7228, 3063 )
+
+[node name="PrisonPlatform13" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 8165, 3063 )
+
+[node name="PrisonPlatform14" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 9071, 3063 )
+
+[node name="PrisonPlatform15" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 5225, -1914 )
+
+[node name="PrisonPlatform16" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 6220, -1914 )
+
+[node name="PrisonPlatform17" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 7157, -1914 )
+
+[node name="PrisonPlatform18" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 8063, -1914 )
+
+[node name="PrisonPlatform24" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 10350, -1985 )
+
+[node name="PrisonPlatform25" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 11345, -1985 )
+
+[node name="PrisonPlatform26" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 12282, -1985 )
+
+[node name="PrisonPlatform27" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 13188, -1985 )
+
+[node name="PrisonPlatform28" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 14910, -4017 )
+
+[node name="PrisonPlatform29" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 15905, -4017 )
+
+[node name="PrisonPlatform30" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 16842, -4017 )
+
+[node name="PrisonPlatform31" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 17748, -4017 )
+
+[node name="PrisonPlatform32" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 7561, -5453 )
+
+[node name="PrisonPlatform33" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 8556, -5453 )
+
+[node name="PrisonPlatform36" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 4249, -7263 )
+
+[node name="PrisonPlatform37" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 5244, -7263 )
+
+[node name="PrisonPlatform38" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 7730, -8980 )
+
+[node name="PrisonPlatform39" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 8725, -8980 )
+
+[node name="PrisonPlatform34" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 12158, -5453 )
+
+[node name="PrisonPlatform35" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 13064, -5453 )
+
+[node name="PrisonPlatform20" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 12875, 13645 )
+
+[node name="PrisonPlatform21" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 13870, 13645 )
+
+[node name="PrisonPlatform22" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 14807, 13645 )
+
+[node name="PrisonPlatform23" parent="FuturePrison/Platforms" instance=ExtResource( 4 )]
+position = Vector2( 15713, 13645 )
+
+[node name="LasersMoving" type="Node2D" parent="FuturePrison"]
+visible = false
+z_index = 1
+
+[node name="Lasers" parent="FuturePrison/LasersMoving" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 1189, -565 )
+scale = Vector2( 1.10003, 7.82567 )
+
+[node name="LaserVent" type="Node2D" parent="FuturePrison"]
+
+[node name="Lasers" parent="FuturePrison/LaserVent" instance=ExtResource( 6 )]
+position = Vector2( 22595, -9666 )
+scale = Vector2( 1, 0.64001 )
+
+[node name="Lasers3" parent="FuturePrison/LaserVent" instance=ExtResource( 6 )]
+position = Vector2( 22721, 429 )
+scale = Vector2( 1, 0.64001 )
+
+[node name="Lasers5" parent="FuturePrison/LaserVent" instance=ExtResource( 6 )]
+position = Vector2( 22665, 13624 )
+scale = Vector2( 1, 0.64001 )
+
+[node name="BG" type="Node2D" parent="FuturePrison"]
+z_index = -3
+
+[node name="Back" type="Node2D" parent="FuturePrison/BG"]
+
+[node name="BackgroundTile34x" type="Sprite" parent="FuturePrison/BG/Back"]
+position = Vector2( 4723, -564.999 )
+scale = Vector2( -241.795, 10.7188 )
+texture = ExtResource( 12 )
+
+[node name="BackgroundTile24x" type="Sprite" parent="FuturePrison/BG/Back"]
+position = Vector2( 4760, 14033 )
+texture = ExtResource( 14 )
+
+[node name="BackgroundTile04x" type="Sprite" parent="FuturePrison/BG/Back"]
+position = Vector2( 8826, 14033 )
+texture = ExtResource( 13 )
+
+[node name="BackgroundTile14x" type="Sprite" parent="FuturePrison/BG/Back"]
+position = Vector2( 6743, 14033 )
+texture = ExtResource( 11 )
+
+[node name="Walls" type="Node2D" parent="FuturePrison/BG"]
+
+[node name="PrisonFloor" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 13811, 16238 )
+scale = Vector2( 27.88, 1 )
+
+[node name="PrisonFloor2" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 21226, -3252 )
+rotation = -1.57079
+scale = Vector2( 33.04, 1 )
+
+[node name="PrisonFloor4" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 18898, -3060 )
+rotation = -4.71238
+scale = Vector2( 33.04, 1 )
+
+[node name="PrisonFloor5" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 24207, -3460 )
+rotation = -4.71238
+scale = Vector2( 33.04, 1 )
+
+[node name="PrisonFloor6" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 27550, 14953 )
+rotation = -4.71238
+scale = Vector2( 3.64001, 1 )
+
+[node name="PrisonFloor3" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 3715, 0 )
+rotation = -1.57079
+scale = Vector2( 33.04, 1 )
+
+[node name="PrisonFloor7" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 25884, 13215 )
+rotation = 8.88506e-06
+scale = Vector2( 3.32017, 1.97283 )
+
+[node name="PrisonFloor8" parent="FuturePrison/BG/Walls" instance=ExtResource( 15 )]
+position = Vector2( 20093, 13547 )
+rotation = 8.88506e-06
+scale = Vector2( 2.57007, 2.36346 )
+
+[node name="Guard" type="Node2D" parent="FuturePrison"]
+
+[node name="Enemy" parent="FuturePrison/Guard" instance=ExtResource( 17 )]
+position = Vector2( 13423, 12910 )
+
+[node name="Enemy2" parent="FuturePrison/Guard" instance=ExtResource( 17 )]
+position = Vector2( 16406, 7190 )
+
+[node name="Enemy3" parent="FuturePrison/Guard" instance=ExtResource( 17 )]
+position = Vector2( 6655, -2887 )
+
+[node name="TempPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 22671, -10740 )
+
+[node name="Camera2D" type="Camera2D" parent="TempPlayer"]
+position = Vector2( 0, -662 )
+z_index = 10
+current = true
+zoom = Vector2( 6, 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )

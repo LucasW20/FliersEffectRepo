@@ -7,7 +7,7 @@ public class MovingPlatforms : Node2D
     // private int a = 2;
     // private string b = "text";
     private int speed;
-    private int XReset;
+    //private int XReset;
    // private Node2D myNode;
 
     // Called when the node enters the scene tree for the first time.
@@ -15,7 +15,7 @@ public class MovingPlatforms : Node2D
     {
         //speed = -500;
         speed = -1500;//testing
-        XReset = 0;
+       // XReset = 0;
         //myNode = GetParent().GetNode<Node2D>("MovingPlatforms");
     }
 
