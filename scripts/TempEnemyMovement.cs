@@ -36,12 +36,12 @@ public class TempEnemyMovement : KinematicBody2D
 		if (!bottomRight.IsColliding())
 		{
 			velocity.x = -speed;
-			sprite.FlipH = false;
+			sprite.FlipH = true;
 		}
 		else if (!bottomLeft.IsColliding())
 		{
 			velocity.x = speed;
-			sprite.FlipH = true;
+			sprite.FlipH = false;
 		}
 		else if (dirRight.IsColliding())
 		{
