@@ -95,7 +95,7 @@ public class TempPlayer : KinematicBody2D {
 				}
 			} else if (velocity.x <= -maxSpeed) { //if the player has more speed than the max then apply deceleration 
 				velocity.x += dcc;
-            }
+			}
 
 			//change to facing left
 			flipDirection = true;
@@ -204,6 +204,7 @@ public class TempPlayer : KinematicBody2D {
 
 		if (!IsOnFloor() && !notFalling) {
 			velocity.y += FAST_FALL_GRAVITY * delta;
+			AnimationController.playPlayerAnimation("JumpFall", flipDirection);
 		}
 	}
 
@@ -218,11 +219,11 @@ public class TempPlayer : KinematicBody2D {
 
 	//Future Respawn method
 	private void FRespawn(object body)
-    {
+	{
 		if (body.GetType().Name.Equals("TempPlayer"))
-        {
+		{
 			myNode.Position = new Vector2(6444, -52044);
-        }
+		}
 
 	}
 
@@ -238,9 +239,9 @@ public class TempPlayer : KinematicBody2D {
 
 	//Past Checkpoint
 	private void PCheckpoint(object body)
-    {
+	{
 		myNode.Position = new Vector2(14275, -5227);
-    }
+	}
 
 	//Future Checkpoint
 	//private void FCheckpoint(object body,Vector2 Argument_1)
@@ -252,9 +253,9 @@ public class TempPlayer : KinematicBody2D {
 
 	//level 2 spawn
 	public void L2StartSpawn()
-    {
+	{
 		myNode.Position = new Vector2(22671, -10740);
-    }
+	}
 
 	//Level 2 Checkpoint
 	public void L2Checkpoint()

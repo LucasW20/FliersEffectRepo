@@ -42,7 +42,7 @@ public class ChangeScene : Node {
 		}
 
 		//when the fade has completed actually change the scene
-		GetTree().ChangeScene("");
+		GetTree().ChangeScene("res://scenes/Levels/Past/Level 2.tscn");
 	}
 
 	private void OnExitTimerRunout() { } //do nothing

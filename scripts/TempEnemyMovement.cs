@@ -60,6 +60,8 @@ public class TempEnemyMovement : KinematicBody2D
 	{
 		if (body is TempPlayer)
 		{
+			//this.GetNode<AnimationPlayer>("AnimationPlayer").Play("Caught");
+
 			TempPlayer player = (TempPlayer)body;
 			player.L2Checkpoint();
 			//player.GetTree().ReloadCurrentScene();
