@@ -6,7 +6,7 @@ public class Fan : AnimationPlayer
     //plays the fan animation
     public override void _Ready()
     {
-        
+        this.Play("Fan");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +17,6 @@ public class Fan : AnimationPlayer
         //AnimationPlayer player = new AnimationPlayer();
         //player.Play(name);
     }
+
+
 }
