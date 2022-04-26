@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://Audio/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav" type="AudioStream" id=2]
-[ext_resource path="res://images/UI/TitleScreenPass1.png" type="Texture" id=3]
+[ext_resource path="res://images/UI/DepressedButtonButNotDepressedLikeIAmHahahaHa04x.png" type="Texture" id=3]
 [ext_resource path="res://images/UI/isItTooObliqueOfAJokeToNameAButtonBenjamin@4x.png" type="Texture" id=4]
 [ext_resource path="res://SpeedDemon.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://images/UI/TitleScreenPass1@4x.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
@@ -14,24 +15,28 @@ font_data = ExtResource( 5 )
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 120.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="TitleScreenPass1" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-offset = Vector2( 512, 360 )
+[node name="TitleScreenPass14x" type="Sprite" parent="."]
+position = Vector2( 966.959, 679.68 )
+scale = Vector2( 0.472, 0.472 )
+texture = ExtResource( 6 )
 
 [node name="QuitTxButton" type="TextureButton" parent="."]
-margin_left = 512.0
-margin_top = 323.0
-margin_right = 1733.0
-margin_bottom = 853.0
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = 1269.0
+margin_top = 648.225
+margin_right = 2490.0
+margin_bottom = 1178.23
+rect_scale = Vector2( 0.25, 0.25 )
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,12 +59,13 @@ __meta__ = {
 }
 
 [node name="StartTxButton" type="TextureButton" parent="."]
-margin_left = 512.0
-margin_top = 268.0
-margin_right = 1733.0
-margin_bottom = 798.0
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = 1269.0
+margin_top = 507.0
+margin_right = 2490.0
+margin_bottom = 1037.0
+rect_scale = Vector2( 0.25, 0.25 )
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,6 +86,10 @@ text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
 
 [connection signal="pressed" from="QuitTxButton" to="." method="OnExitPressed"]
 [connection signal="pressed" from="StartTxButton" to="." method="OnStartPressed"]

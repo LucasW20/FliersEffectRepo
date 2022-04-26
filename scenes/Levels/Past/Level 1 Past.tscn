@@ -70,16 +70,6 @@ current = true
 zoom = Vector2( 6, 6 )
 limit_bottom = 3000
 
-[node name="Black" type="Sprite" parent="TempPlayer"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 467, 353 )
-scale = Vector2( 10, 10 )
-texture = ExtResource( 28 )
-script = ExtResource( 33 )
-
-[node name="ExitTimer" type="Timer" parent="TempPlayer/Black"]
-wait_time = 0.05
-
 [node name="TempPlayer2" type="Sprite" parent="."]
 position = Vector2( 6444, -52044 )
 scale = Vector2( 6.40558, 4.88312 )
@@ -2571,7 +2561,16 @@ shape = SubResource( 7 )
 position = Vector2( 16747, -61600 )
 shape = SubResource( 7 )
 
-[connection signal="timeout" from="TempPlayer/Black/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
+[node name="Black" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 6852, -31198 )
+scale = Vector2( 107.749, 128.88 )
+texture = ExtResource( 28 )
+script = ExtResource( 33 )
+
+[node name="ExitTimer" type="Timer" parent="Black"]
+wait_time = 0.005
+
 [connection signal="body_entered" from="FutureRespawn" to="TempPlayer" method="FRespawn"]
 [connection signal="body_entered" from="PastRespawn" to="TempPlayer" method="PRespawn"]
 [connection signal="body_entered" from="PastCheckpoint" to="TempPlayer" method="PCheckpoint"]
@@ -2580,3 +2579,4 @@ shape = SubResource( 7 )
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
 [connection signal="body_entered" from="FutureCheckpoint" to="TempPlayer" method="FCheckpoint"]
+[connection signal="timeout" from="Black/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]

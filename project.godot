@@ -12,7 +12,14 @@ config_version=4
 
 config/name="Fliers Effect"
 run/main_scene="res://scenes/MainMenu.tscn"
+boot_splash/image="res://images/UI/TFEMM.png"
+boot_splash/fullsize=false
 config/icon="res://images/icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [editor_plugins]
 

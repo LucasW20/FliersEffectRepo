@@ -222,7 +222,7 @@ public class TempPlayer : KinematicBody2D {
 	{
 		if (body.GetType().Name.Equals("TempPlayer"))
 		{
-			myNode.Position = new Vector2(6444, -52044);
+			GetParent().GetNode<RespawnFade>("Black").SpawnFade(myNode, new Vector2(6444, -52044));
 		}
 
 	}
@@ -232,8 +232,7 @@ public class TempPlayer : KinematicBody2D {
 	{
 		if (body.GetType().Name.Equals("TempPlayer"))
 		{
-			//GetNode<Sprite>("Black").
-			myNode.Position = new Vector2(-4910, 1746);
+			GetParent().GetNode<RespawnFade>("Black").SpawnFade(myNode, new Vector2(-4910, 1746));
 		}
 
 	}
