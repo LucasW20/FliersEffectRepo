@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Getting Caught.1.wav-501220ed30077cb8de073f3ce7906283.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Getting Caught-Death-Victory/Getting Caught.1.wav"
+dest_files=[ "res://.import/Getting Caught.1.wav-501220ed30077cb8de073f3ce7906283.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

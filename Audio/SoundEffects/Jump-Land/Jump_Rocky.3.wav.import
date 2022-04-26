@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Jump_Rocky.3.wav-f91b8436b6d3ea2a0e3772ca8c79990f.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Jump-Land/Jump_Rocky.3.wav"
+dest_files=[ "res://.import/Jump_Rocky.3.wav-f91b8436b6d3ea2a0e3772ca8c79990f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

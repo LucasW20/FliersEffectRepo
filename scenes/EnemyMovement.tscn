@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://images/Characters/enemyWalk.png" type="Texture" id=1]
 [ext_resource path="res://scripts/TempEnemyMovement.cs" type="Script" id=2]
 [ext_resource path="res://images/Characters/enemy_CaughtSpritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Audio/SoundEffects/Getting Caught-Death-Victory/Getting Caught.1.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=5]
 resource_name = "Caught"
@@ -122,5 +123,8 @@ vframes = 3
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

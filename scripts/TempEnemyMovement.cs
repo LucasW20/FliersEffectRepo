@@ -14,6 +14,9 @@ public class TempEnemyMovement : KinematicBody2D
 	private int gravity = 200;
 	private int speed = 500;
 
+	//audio
+	private AudioStreamPlayer caught;
+
 	public override void _Ready()
 	{
 		sprite = GetNode<Sprite>("Sprite");
@@ -63,6 +66,12 @@ public class TempEnemyMovement : KinematicBody2D
 			//this.GetNode<AnimationPlayer>("AnimationPlayer").Play("Caught");
 
 			TempPlayer player = (TempPlayer)body;
+
+			//audio
+			caught = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+			caught.VolumeDb = 20;
+			caught.Play();
+
 			player.L2Checkpoint();
 			//player.GetTree().ReloadCurrentScene();
 		}

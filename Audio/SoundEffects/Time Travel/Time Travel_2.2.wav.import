@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Time Travel_2.2.wav-b359f8bbd38ff7a40869e660b8b7760a.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Time Travel/Time Travel_2.2.wav"
+dest_files=[ "res://.import/Time Travel_2.2.wav-b359f8bbd38ff7a40869e660b8b7760a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

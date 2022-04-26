@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Land.1.wav-521ad12dff3c3919843122b3651155c0.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Jump-Land/Land.1.wav"
+dest_files=[ "res://.import/Land.1.wav-521ad12dff3c3919843122b3651155c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

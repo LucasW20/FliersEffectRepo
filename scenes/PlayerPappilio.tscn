@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/TempPlayer.cs" type="Script" id=1]
 [ext_resource path="res://images/PlayerAnimations/Idle_Spritesheet.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://images/Jump_Spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://images/PlayerAnimations/JumpStart_Spritesheet.png" type="Texture" id=5]
 [ext_resource path="res://images/Fall_Spritesheet.png" type="Texture" id=6]
+[ext_resource path="res://Audio/SoundEffects/Jump-Land/Jump.1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/SoundEffects/Time Travel/Time Travel_2.1.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
@@ -199,6 +201,12 @@ hframes = 2
 visible = false
 texture = ExtResource( 4 )
 hframes = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]

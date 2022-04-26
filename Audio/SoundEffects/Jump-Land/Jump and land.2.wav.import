@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Jump and land.2.wav-859956b94be66c106aa797976a2c8d64.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Jump-Land/Jump and land.2.wav"
+dest_files=[ "res://.import/Jump and land.2.wav-859956b94be66c106aa797976a2c8d64.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

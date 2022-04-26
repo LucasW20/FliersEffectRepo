@@ -19,8 +19,11 @@ public class TempPlayer : KinematicBody2D {
 
 	public Vector2 velocity;
 
+	//Audio
 	private AudioStreamPlayer pastPlayer;
 	private AudioStreamPlayer futurePlayer;
+	private AudioStreamPlayer jumpAudio;
+	private AudioStreamPlayer timeTravelAudio;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -40,7 +43,7 @@ public class TempPlayer : KinematicBody2D {
 		futurePlayer = GetParent().GetNode<AudioStreamPlayer>("AudioStreamPlayer2");
 		pastPlayer.VolumeDb = 10;
 		pastPlayer.Play();
-		futurePlayer.VolumeDb = 0;
+		futurePlayer.VolumeDb = -20;
 		futurePlayer.Play();
 	}
 
@@ -132,16 +135,23 @@ public class TempPlayer : KinematicBody2D {
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y - 50000);
 				timeTraveled = true;
 				//audio
+				timeTravelAudio = GetNode<AudioStreamPlayer>("AudioStreamPlayer2");
+				timeTravelAudio.PitchScale = 3;
+				timeTravelAudio.Play();
+				timeTravelAudio.VolumeDb = 20;
 				futurePlayer.VolumeDb = 10;
-				pastPlayer.VolumeDb = -10;
-				futurePlayer.Play();
+				pastPlayer.VolumeDb = -20;
+				
 			} else { //if in the past then move to the future
 				myNode.Position = new Vector2(myNode.Position.x, myNode.Position.y + 50000);
 				timeTraveled = false;
 				//audio
+				timeTravelAudio = GetNode<AudioStreamPlayer>("AudioStreamPlayer2");
+				timeTravelAudio.PitchScale = 3;
+				timeTravelAudio.Play();
+				timeTravelAudio.VolumeDb = 20;
 				pastPlayer.VolumeDb = 10;
-				futurePlayer.VolumeDb = -10;
-				pastPlayer.Play();
+				futurePlayer.VolumeDb = -20;
 			}
 		}
 	}
@@ -192,6 +202,12 @@ public class TempPlayer : KinematicBody2D {
 			//setup for jump control
 			jumpRelease = false;
 			jumpTimer.Start();
+
+			//jump sound effect
+			jumpAudio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+			jumpAudio.Play();
+			jumpAudio.VolumeDb = 20;
+
 			startJump = true;
 		}
 
