@@ -12,8 +12,8 @@ config_version=4
 
 config/name="Fliers Effect"
 run/main_scene="res://scenes/MainMenu.tscn"
-boot_splash/image="res://images/UI/TFEMM.png"
-boot_splash/fullsize=false
+boot_splash/image="res://images/UI/Loading4x.png"
+boot_splash/bg_color=Color( 0, 0.0156863, 0.137255, 1 )
 config/icon="res://images/icon.png"
 
 [display]

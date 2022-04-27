@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://Audio/Flier Effect Older Music_1920s Swing_1_4.7.2022.wav" type="AudioStream" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://images/UI/isItTooObliqueOfAJokeToNameAButtonBenjamin@4x.png" type="Texture" id=4]
 [ext_resource path="res://SpeedDemon.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://images/UI/TitleScreenPass1@4x.png" type="Texture" id=6]
+[ext_resource path="res://images/UI/Loading4x.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
@@ -24,12 +25,26 @@ __meta__ = {
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="TitleScreenPass14x" type="Sprite" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Loading" type="Sprite" parent="."]
+position = Vector2( 1009, 875 )
+scale = Vector2( 0.472, 0.472 )
+texture = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+
+[node name="Front" type="Node2D" parent="."]
+
+[node name="TitleScreenPass14x" type="Sprite" parent="Front"]
 position = Vector2( 966.959, 679.68 )
 scale = Vector2( 0.472, 0.472 )
 texture = ExtResource( 6 )
 
-[node name="QuitTxButton" type="TextureButton" parent="."]
+[node name="QuitTxButton" type="TextureButton" parent="Front"]
 margin_left = 1269.0
 margin_top = 648.225
 margin_right = 2490.0
@@ -41,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="QuitTxButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Front/QuitTxButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -58,7 +73,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartTxButton" type="TextureButton" parent="."]
+[node name="StartTxButton" type="TextureButton" parent="Front"]
 margin_left = 1269.0
 margin_top = 507.0
 margin_right = 2490.0
@@ -70,7 +85,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="StartTxButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Front/StartTxButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -87,9 +102,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 960, 540 )
-current = true
-
-[connection signal="pressed" from="QuitTxButton" to="." method="OnExitPressed"]
-[connection signal="pressed" from="StartTxButton" to="." method="OnStartPressed"]
+[connection signal="timeout" from="Timer" to="." method="onTimerTimeout"]
+[connection signal="pressed" from="Front/QuitTxButton" to="." method="OnExitPressed"]
+[connection signal="pressed" from="Front/StartTxButton" to="." method="OnStartPressed"]
