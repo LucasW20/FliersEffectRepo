@@ -3,11 +3,8 @@ using System;
 
 public class Jailbreak : KinematicBody2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
     private bool JailLocked = true;
-    public Vector2 Loc = new Vector2 { };
+    public Vector2 Loc;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -15,24 +12,15 @@ public class Jailbreak : KinematicBody2D
         
     }
 
-    public void Breakout(bool jail)
-    {
-        Loc = new Vector2 { };
-        if(JailLocked == true)
-        {
+    public void Breakout(Node2D body) {
+        Loc = new Vector2(40000, 0);
+
+        if(JailLocked) {
             Console.WriteLine("Breakout Called");
             JailLocked = false;
-           Visible = false;
-           
-            
-
+            Visible = false;
+            Position = Loc;
             //GetChild(0).SetPhysicsProcess(false);
-           
         }
     }
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }
