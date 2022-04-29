@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://images/Background/Factory/factoryWallBig.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/FactFloor.tscn" type="PackedScene" id=2]
@@ -19,6 +19,17 @@
 [ext_resource path="res://scenes/EnemyMovement.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/Prefabs/Environments/Future/Prison/LaserJail.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/PashaNPC.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/Prefabs/UI/NaviOrb.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Prefabs/UI/DirectionNavi.tscn" type="PackedScene" id=21]
+[ext_resource path="res://images/black.png" type="Texture" id=22]
+[ext_resource path="res://scenes/Menus/Pause Menu.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scripts/ExitToMenu.cs" type="Script" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 131, 568 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 68.75 )
 
 [node name="Level 2" type="Node2D"]
 
@@ -1465,25 +1476,21 @@ position = Vector2( 6655, -2887 )
 [node name="Jail" type="Node2D" parent="FuturePrison"]
 z_index = -4
 
-[node name="LaserJail" parent="FuturePrison/Jail" instance=ExtResource( 18 )]
+[node name="Node2D" type="Node2D" parent="FuturePrison/Jail"]
+
+[node name="LaserJail" parent="FuturePrison/Jail/Node2D" instance=ExtResource( 18 )]
 position = Vector2( 24397, 14559 )
-z_index = -4
-
-[node name="LaserJail2" parent="FuturePrison/Jail" instance=ExtResource( 18 )]
-position = Vector2( 24224, 14562 )
-z_index = -4
-
-[node name="LaserJail3" parent="FuturePrison/Jail" instance=ExtResource( 18 )]
-position = Vector2( 24591, 14565 )
-z_index = -4
-
-[node name="LaserJail4" parent="FuturePrison/Jail" instance=ExtResource( 18 )]
-position = Vector2( 24591, 14565 )
 z_index = -4
 
 [node name="PashaNPC" parent="FuturePrison" instance=ExtResource( 19 )]
 position = Vector2( 24837, 15659 )
 scale = Vector2( -1, 1 )
+
+[node name="Breakout" type="Area2D" parent="FuturePrison"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FuturePrison/Breakout"]
+position = Vector2( 23806, 15500 )
+shape = SubResource( 1 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 22671, -10740 )
@@ -1499,3 +1506,96 @@ stream = ExtResource( 9 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="HINTS" type="Node2D" parent="."]
+position = Vector2( 0, -2236 )
+
+[node name="NaviOrb" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 21742, -8504 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="NaviOrb2" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 21738, -8265 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb6" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 16688, 17736 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb7" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 15845, 2517 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb8" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 11847, -8560 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="DirectionNavi" parent="HINTS" instance=ExtResource( 21 )]
+position = Vector2( 21738, -7911 )
+rotation = 1.5708
+
+[node name="NaviOrb3" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 23648, -8504 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="NaviOrb4" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 23644, -8265 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="DirectionNavi2" parent="HINTS" instance=ExtResource( 21 )]
+position = Vector2( 23644, -7911 )
+rotation = 1.5708
+
+[node name="NaviOrb5" parent="HINTS" instance=ExtResource( 20 )]
+position = Vector2( 22726, -1530 )
+
+[node name="Node2D" type="Node2D" parent="HINTS"]
+position = Vector2( 0, -50000 )
+
+[node name="NaviOrb6" parent="HINTS/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 15822, 4105 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb7" parent="HINTS/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 5545, -642 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb8" parent="HINTS/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 5043, -13757 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Pause" parent="." instance=ExtResource( 23 )]
+
+[node name="ExitObject" type="Node2D" parent="."]
+position = Vector2( 307.002, -66649 )
+scale = Vector2( 5, 5 )
+script = ExtResource( 24 )
+
+[node name="Black" type="Sprite" parent="ExitObject"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 467, 353 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 22 )
+
+[node name="Area2D" type="Area2D" parent="ExitObject"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitObject/Area2D"]
+scale = Vector2( -2.54427, 4.86188 )
+shape = SubResource( 2 )
+
+[node name="ExitTimer" type="Timer" parent="ExitObject"]
+wait_time = 0.05
+
+[connection signal="body_entered" from="FuturePrison/Breakout" to="FuturePrison/Jail/Node2D/LaserJail" method="Breakout"]
+[connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
+[connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]

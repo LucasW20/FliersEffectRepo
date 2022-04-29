@@ -1,38 +1,38 @@
 using Godot;
 using System;
 
-/***
- * Handles changing the scene
- * @author Lucas_C_Wright
- * @start 3-21-2022
- * @version 3-21-2022
- */
-public class ChangeScene : Node {
+public class ExitToMenu : Node2D
+{
 	private Sprite fadeImage;
 	private Timer exitTimer;
-	private bool NotFinalLevel = true;
+	
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {
+	public override void _Ready()
+	{
 		fadeImage = GetChild<Sprite>(0);
 		exitTimer = GetChild<Timer>(2);
 	}
 
 	//runs when the player enteres the area that exits the scene
-	private void OnBodyEntered(object body) {
-		if (body.GetType().Name.Equals("TempPlayer")) { //if the player and not another object enters the exit area
-			//Console.WriteLine("Entered Area");
-			//fade out the scene 
+	private void OnBodyEntered(object body)
+	{
+		if (body.GetType().Name.Equals("TempPlayer"))
+		{ //if the player and not another object enters the exit area
+		  //Console.WriteLine("Entered Area");
+		  //fade out the scene 
 			FadeOut();
 		}
 	}
 
 	//fades out the scene and then changes the scene
-	async private void FadeOut() {
+	async private void FadeOut()
+	{
 		fadeImage.Modulate = new Color(fadeImage.Modulate, 0); //make sure the alpha of the image is 0
 
 		//loop to gradually change the the alpha value by 0.025 each iteration
-		for (float i = 0; i <= 1; i += 0.025f) {
+		for (float i = 0; i <= 1; i += 0.025f)
+		{
 			//change the alpha
 			fadeImage.Modulate = new Color(fadeImage.Modulate, i);
 			Console.WriteLine(fadeImage.Modulate.a);
@@ -42,22 +42,14 @@ public class ChangeScene : Node {
 			await ToSignal(exitTimer, "timeout");
 		}
 
-		Console.WriteLine(NotFinalLevel);
+		
 		//when the fade has completed actually change the scene
-		if (NotFinalLevel)
-		{
-			GetTree().ChangeScene("res://scenes/Levels/Past/Level 2.tscn");
-			NotFinalLevel = false;
-		}
-		else if (!NotFinalLevel)
-        {
-
-			GetTree().ChangeScene("res://scenes/MainMenu.tscn");
-			Console.WriteLine("DISHONOR!! DISHONOR ON YOU DISHONOR ON YOUR COW");
-        }
+		GetTree().ChangeScene("res://scenes/MainMenu.tscn");
+		Console.WriteLine("DISHONOR!! DISHONOR ON YOU DISHONOR ON YOUR COW");
 		
 
-	
+
+
 	}
 
 	private void OnExitTimerRunout() { } //do nothing

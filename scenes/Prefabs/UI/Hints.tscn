@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Prefabs/UI/NaviOrb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Prefabs/UI/DirectionNavi.tscn" type="PackedScene" id=2]
+
+[node name="HINTS" type="Node2D"]
+
+[node name="NaviOrb" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5559, -2831 )
+
+[node name="NaviOrb2" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 11955, -63835 )
+
+[node name="NaviOrb3" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 13885, -72676 )
+
+[node name="DirectionNavi" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6869, -54861 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+
+[node name="DirectionNavi2" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -4436, -71048 )
+scale = Vector2( 2, 2 )
+
+[node name="DirectionNavi3" type="Node2D" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 12150, -72427 )
+scale = Vector2( 2, 2 )

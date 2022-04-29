@@ -38,7 +38,8 @@ margin_right = 239.0
 margin_bottom = 20.0
 text = "Continue"
 
-[node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="Hints" type="Button" parent="PauseMenu/VBoxContainer"]
+visible = false
 margin_top = 24.0
 margin_right = 239.0
 margin_bottom = 44.0
@@ -57,6 +58,6 @@ margin_bottom = 92.0
 text = "Main Menu"
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Continue" to="PauseMenu" method="OnContinuePressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Options" to="PauseMenu" method="OnOptionsPressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Hints" to="PauseMenu" method="OnOptionsPressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Restart" to="PauseMenu" method="OnRestartPressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="PauseMenu" method="OnMainMenuPressed"]

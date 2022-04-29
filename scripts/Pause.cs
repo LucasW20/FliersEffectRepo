@@ -39,10 +39,11 @@ public class Pause : Control
 		Pausing(false);
 	}
 
-	private void OnOptionsPressed()
-	{
-		Console.WriteLine("Options Pressed");
-	}
+	//private void OnHintsPressed()
+	//{
+	//	Console.WriteLine("Hints Pressed");
+
+	//}
 
 	private void OnRestartPressed()
 	{
