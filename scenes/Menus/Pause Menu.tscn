@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Pause.cs" type="Script" id=1]
+[ext_resource path="res://images/UI/isItTooObliqueOfAJokeToNameAButtonBenjamin.png" type="Texture" id=2]
+[ext_resource path="res://Copy of pdark.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 81
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
 
 [node name="Pause" type="CanvasLayer"]
 
@@ -20,44 +27,101 @@ margin_top = 2.0
 margin_right = 2464.0
 margin_bottom = 1414.0
 color = Color( 0, 0, 0, 0.270588 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
-margin_left = 68.0
-margin_top = 74.0
-margin_right = 307.0
-margin_bottom = 281.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = 676.0
+margin_top = 148.0
+margin_right = 1897.0
+margin_bottom = 951.0
 
-[node name="Continue" type="Button" parent="PauseMenu/VBoxContainer"]
-margin_right = 239.0
-margin_bottom = 20.0
+[node name="ContinueTx" type="TextureButton" parent="PauseMenu/VBoxContainer"]
+margin_right = 1221.0
+margin_bottom = 265.0
+texture_normal = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/VBoxContainer/ContinueTx"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -524.5
+margin_top = -39.5
+margin_right = 489.5
+margin_bottom = 144.5
+custom_fonts/normal_font = SubResource( 1 )
 text = "Continue"
 
-[node name="Hints" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="RestartTx2" type="TextureButton" parent="PauseMenu/VBoxContainer"]
+margin_top = 269.0
+margin_right = 1221.0
+margin_bottom = 534.0
+texture_normal = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/VBoxContainer/RestartTx2"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -487.5
+margin_top = -40.5
+margin_right = 426.5
+margin_bottom = 143.5
+custom_fonts/normal_font = SubResource( 1 )
+text = "Restart"
+
+[node name="MainMenuTx" type="TextureButton" parent="PauseMenu/VBoxContainer"]
+margin_top = 538.0
+margin_right = 1221.0
+margin_bottom = 803.0
+texture_normal = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/VBoxContainer/MainMenuTx"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -560.5
+margin_top = -36.5
+margin_right = 580.5
+margin_bottom = 147.5
+custom_fonts/normal_font = SubResource( 1 )
+text = "Main Menu"
+
+[node name="Continue" type="Button" parent="PauseMenu/VBoxContainer"]
 visible = false
-margin_top = 24.0
-margin_right = 239.0
-margin_bottom = 44.0
+margin_top = 534.0
+margin_right = 1221.0
+margin_bottom = 554.0
+text = "Continue"
+
+[node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
+visible = false
+margin_top = 1602.0
+margin_right = 1221.0
+margin_bottom = 1622.0
 text = "Options"
 
 [node name="Restart" type="Button" parent="PauseMenu/VBoxContainer"]
-margin_top = 48.0
-margin_right = 239.0
-margin_bottom = 68.0
+visible = false
+margin_top = 1602.0
+margin_right = 1221.0
+margin_bottom = 1622.0
 text = "Restart"
 
 [node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer"]
-margin_top = 72.0
-margin_right = 239.0
-margin_bottom = 92.0
+visible = false
+margin_top = 1602.0
+margin_right = 1221.0
+margin_bottom = 1622.0
 text = "Main Menu"
 
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ContinueTx" to="PauseMenu" method="OnContinuePressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/RestartTx2" to="PauseMenu" method="OnRestartPressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenuTx" to="PauseMenu" method="OnMainMenuPressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Continue" to="PauseMenu" method="OnContinuePressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Hints" to="PauseMenu" method="OnOptionsPressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Options" to="PauseMenu" method="OnOptionsPressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Restart" to="PauseMenu" method="OnRestartPressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="PauseMenu" method="OnMainMenuPressed"]
