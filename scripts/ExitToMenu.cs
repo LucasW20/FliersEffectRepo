@@ -44,7 +44,7 @@ public class ExitToMenu : Node2D
 
 		
 		//when the fade has completed actually change the scene
-		GetTree().ChangeScene("res://scenes/MainMenu.tscn");
+		GetTree().ChangeScene("res://scenes/Cutscenes/EndScene.tscn");
 		Console.WriteLine("DISHONOR!! DISHONOR ON YOU DISHONOR ON YOUR COW");
 		
 

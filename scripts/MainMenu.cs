@@ -35,7 +35,7 @@ public class MainMenu : Control
 		await ToSignal(myTimer, "timeout");
 
 		//CHANGE SCENE
-		GetTree().ChangeScene("res://scenes/Levels/Past/Level 1 Past.tscn");
+		GetTree().ChangeScene("res://scenes/Cutscenes/OpenScene.tscn");
 	}
 
 	private void OnOptionsPressed() 

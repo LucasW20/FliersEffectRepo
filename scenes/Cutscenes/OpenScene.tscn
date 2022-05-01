@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Cutscenes/ComicLevelOne24x.png" type="Texture" id=1]
+[ext_resource path="res://Copy of pdark.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/CutsceneManager.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 215
+font_data = ExtResource( 2 )
+
+[node name="ComicLevelOne24x" type="Sprite"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.283, 0.267 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="PromptText" type="RichTextLabel" parent="."]
+margin_left = -3303.89
+margin_top = 1704.12
+margin_right = 141.113
+margin_bottom = 1925.12
+custom_fonts/normal_font = SubResource( 1 )
+text = "Press SPACE to continue..."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="onTimerTimeout" binds= [ "res://scenes/Levels/Past/Level 1 Past.tscn" ]]

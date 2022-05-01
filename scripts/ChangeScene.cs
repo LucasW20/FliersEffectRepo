@@ -46,15 +46,15 @@ public class ChangeScene : Node {
 		//when the fade has completed actually change the scene
 		if (NotFinalLevel)
 		{
-			GetTree().ChangeScene("res://scenes/Levels/Past/Level 2.tscn");
+			GetTree().ChangeScene("res://scenes/Cutscenes/MidScene.tscn");
 			NotFinalLevel = false;
 		}
 		else if (!NotFinalLevel)
-        {
+		{
 
 			GetTree().ChangeScene("res://scenes/MainMenu.tscn");
 			Console.WriteLine("DISHONOR!! DISHONOR ON YOU DISHONOR ON YOUR COW");
-        }
+		}
 		
 
 	
