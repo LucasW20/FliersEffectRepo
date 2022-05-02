@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Temp Assets/tempPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Temp Assets/tempPlatform.png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://images/Background/BGG/SkylineLayer2_0.png" type="Texture" id=37]
 [ext_resource path="res://images/Background/BGG/SkylineLayer3_0.png" type="Texture" id=38]
 [ext_resource path="res://scenes/Prefabs/UI/Hints.tscn" type="PackedScene" id=39]
+[ext_resource path="res://images/UI/glowingCircle@4x.png" type="Texture" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39365.5, 1095.5 )
@@ -674,6 +675,396 @@ position = Vector2( 18413, -3776 )
 
 [node name="Past Bars A80" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
 position = Vector2( 18413, -4897 )
+
+[node name="Past Bars A81" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -23675 )
+
+[node name="Past Bars A82" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -24796 )
+
+[node name="Past Bars B83" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -21452 )
+
+[node name="Past Bars B84" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -22572 )
+
+[node name="Past Bars A83" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -19228 )
+
+[node name="Past Bars A84" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -20349 )
+
+[node name="Past Bars B85" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -17005 )
+
+[node name="Past Bars B86" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, -18125 )
+
+[node name="Past Bars A85" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -14845 )
+
+[node name="Past Bars A86" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, -15966 )
+
+[node name="Past Bars A87" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 3018 )
+
+[node name="Past Bars A88" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 1897 )
+
+[node name="Past Bars B87" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 28426, 5241 )
+
+[node name="Past Bars B88" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 28426, 4121 )
+
+[node name="Past Bars A89" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 7465 )
+
+[node name="Past Bars A90" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 6344 )
+
+[node name="Past Bars B89" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 28426, 9688 )
+
+[node name="Past Bars B90" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 28426, 8568 )
+
+[node name="Past Bars A91" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 11848 )
+
+[node name="Past Bars A92" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 28426, 10727 )
+
+[node name="Past Bars A93" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 3036 )
+
+[node name="Past Bars A94" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 1915 )
+
+[node name="Past Bars B91" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 26268, 5259 )
+
+[node name="Past Bars B92" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 26268, 4139 )
+
+[node name="Past Bars A95" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 7483 )
+
+[node name="Past Bars A96" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 6362 )
+
+[node name="Past Bars B93" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 26268, 9706 )
+
+[node name="Past Bars B94" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 26268, 8586 )
+
+[node name="Past Bars A97" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 11866 )
+
+[node name="Past Bars A98" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 26268, 10745 )
+
+[node name="Past Bars A99" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 4089 )
+
+[node name="Past Bars A100" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 2968 )
+
+[node name="Past Bars B95" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 24600, 6312 )
+
+[node name="Past Bars B96" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 24600, 5192 )
+
+[node name="Past Bars A101" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 8536 )
+
+[node name="Past Bars A102" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 7415 )
+
+[node name="Past Bars B97" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 24600, 10759 )
+
+[node name="Past Bars B98" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 24600, 9639 )
+
+[node name="Past Bars A103" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 12919 )
+
+[node name="Past Bars A104" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 24600, 11798 )
+
+[node name="Past Bars A105" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 4139 )
+
+[node name="Past Bars A106" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 3018 )
+
+[node name="Past Bars B99" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 23733, 6362 )
+
+[node name="Past Bars B100" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 23733, 5242 )
+
+[node name="Past Bars A107" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 8586 )
+
+[node name="Past Bars A108" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 7465 )
+
+[node name="Past Bars B101" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 23733, 10809 )
+
+[node name="Past Bars B102" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 23733, 9689 )
+
+[node name="Past Bars A109" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 12969 )
+
+[node name="Past Bars A110" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 23733, 11848 )
+
+[node name="Past Bars A111" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 5822 )
+
+[node name="Past Bars A112" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 4701 )
+
+[node name="Past Bars B103" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 21943, 8045 )
+
+[node name="Past Bars B104" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 21943, 6925 )
+
+[node name="Past Bars A113" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 10269 )
+
+[node name="Past Bars A114" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 9148 )
+
+[node name="Past Bars B105" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 21943, 12492 )
+
+[node name="Past Bars B106" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 21943, 11372 )
+
+[node name="Past Bars A115" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 14652 )
+
+[node name="Past Bars A116" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 21943, 13531 )
+
+[node name="Past Bars A117" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 4649 )
+
+[node name="Past Bars A118" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 3528 )
+
+[node name="Past Bars B107" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 20948, 6872 )
+
+[node name="Past Bars B108" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 20948, 5752 )
+
+[node name="Past Bars A119" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 9096 )
+
+[node name="Past Bars A120" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 7975 )
+
+[node name="Past Bars B109" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 20948, 11319 )
+
+[node name="Past Bars B110" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 20948, 10199 )
+
+[node name="Past Bars A121" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 13479 )
+
+[node name="Past Bars A122" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 20948, 12358 )
+
+[node name="Past Bars A123" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 5209 )
+
+[node name="Past Bars A124" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 4088 )
+
+[node name="Past Bars B111" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 19277, 7432 )
+
+[node name="Past Bars B112" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 19277, 6312 )
+
+[node name="Past Bars A125" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 9656 )
+
+[node name="Past Bars A126" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 8535 )
+
+[node name="Past Bars B113" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 19277, 11879 )
+
+[node name="Past Bars B114" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 19277, 10759 )
+
+[node name="Past Bars A127" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 14039 )
+
+[node name="Past Bars A128" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 19277, 12918 )
+
+[node name="Past Bars A129" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 5418 )
+
+[node name="Past Bars A130" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 4297 )
+
+[node name="Past Bars B115" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, 7641 )
+
+[node name="Past Bars B116" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, 6521 )
+
+[node name="Past Bars A131" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 9865 )
+
+[node name="Past Bars A132" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 8744 )
+
+[node name="Past Bars B117" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, 12088 )
+
+[node name="Past Bars B118" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 18413, 10968 )
+
+[node name="Past Bars A133" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 14248 )
+
+[node name="Past Bars A134" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 18413, 13127 )
+
+[node name="Past Bars A135" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 5259 )
+
+[node name="Past Bars A136" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 4138 )
+
+[node name="Past Bars B119" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 30568, 7482 )
+
+[node name="Past Bars B120" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 30568, 6362 )
+
+[node name="Past Bars A137" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 9706 )
+
+[node name="Past Bars A138" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 8585 )
+
+[node name="Past Bars B121" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 30568, 11929 )
+
+[node name="Past Bars B122" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 30568, 10809 )
+
+[node name="Past Bars A139" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 14089 )
+
+[node name="Past Bars A140" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 30568, 12968 )
+
+[node name="Past Bars A141" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 4719 )
+
+[node name="Past Bars A142" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 3598 )
+
+[node name="Past Bars B123" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 33690, 6942 )
+
+[node name="Past Bars B124" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 33690, 5822 )
+
+[node name="Past Bars A143" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 9166 )
+
+[node name="Past Bars A144" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 8045 )
+
+[node name="Past Bars B125" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 33690, 11389 )
+
+[node name="Past Bars B126" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 33690, 10269 )
+
+[node name="Past Bars A145" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 13549 )
+
+[node name="Past Bars A146" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 33690, 12428 )
+
+[node name="Past Bars A147" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 3645 )
+
+[node name="Past Bars A148" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 2524 )
+
+[node name="Past Bars B127" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 36017, 5868 )
+
+[node name="Past Bars B128" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 36017, 4748 )
+
+[node name="Past Bars A149" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 8092 )
+
+[node name="Past Bars A150" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 6971 )
+
+[node name="Past Bars B129" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 36017, 10315 )
+
+[node name="Past Bars B130" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 36017, 9195 )
+
+[node name="Past Bars A151" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 12475 )
+
+[node name="Past Bars A152" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 36017, 11354 )
+
+[node name="Past Bars A153" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 3736 )
+
+[node name="Past Bars A154" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 2615 )
+
+[node name="Past Bars B131" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 38491, 5959 )
+
+[node name="Past Bars B132" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 38491, 4839 )
+
+[node name="Past Bars A155" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 8183 )
+
+[node name="Past Bars A156" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 7062 )
+
+[node name="Past Bars B133" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 38491, 10406 )
+
+[node name="Past Bars B134" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
+position = Vector2( 38491, 9286 )
+
+[node name="Past Bars A157" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 12566 )
+
+[node name="Past Bars A158" parent="L1 past/Scaffolding2" instance=ExtResource( 14 )]
+position = Vector2( 38491, 11445 )
 
 [node name="Past Bars B81" parent="L1 past/Scaffolding2" instance=ExtResource( 17 )]
 position = Vector2( 18413, -1553 )
@@ -2631,6 +3022,11 @@ script = ExtResource( 33 )
 wait_time = 0.005
 
 [node name="HINTS" parent="." instance=ExtResource( 39 )]
+
+[node name="GlowingCircle4x" type="Sprite" parent="HINTS"]
+position = Vector2( 38491, -13437 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 40 )
 
 [connection signal="body_entered" from="FutureRespawn" to="TempPlayer" method="FRespawn"]
 [connection signal="body_entered" from="PastRespawn" to="TempPlayer" method="PRespawn"]

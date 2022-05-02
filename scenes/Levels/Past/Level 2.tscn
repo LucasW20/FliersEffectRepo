@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://images/Background/Factory/factoryWallBig.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Prefabs/Environments/Past/Factory/FactFloor.tscn" type="PackedScene" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://images/black.png" type="Texture" id=22]
 [ext_resource path="res://scenes/Menus/Pause Menu.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scripts/ExitToMenu.cs" type="Script" id=24]
+[ext_resource path="res://scripts/TimeHandler.cs" type="Script" id=25]
+[ext_resource path="res://scenes/Prefabs/TimeVoop.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 131, 568 )
@@ -566,6 +568,42 @@ position = Vector2( 20200, 5000 )
 scale = Vector2( 10, 10 )
 z_index = -1
 
+[node name="Concrete67" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -2320, -13502 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete68" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -2320, -9891 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete69" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -4849, -13497 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete70" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -4849, -9886 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete71" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -7349, -13492 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete73" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -6985, -19279 )
+rotation = 1.5708
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete72" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -7349, -9881 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
 [node name="Concrete4" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
 position = Vector2( 20200, 1471 )
 scale = Vector2( 10, 10 )
@@ -628,6 +666,16 @@ z_index = -1
 
 [node name="Concrete34" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
 position = Vector2( 2591, -6375 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete74" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -9918, -13477 )
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete75" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -9918, -9891 )
 scale = Vector2( 10, 10 )
 z_index = -1
 
@@ -768,6 +816,12 @@ z_index = -1
 
 [node name="Concrete66" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
 position = Vector2( -3481, -19268 )
+rotation = 1.57079
+scale = Vector2( 10, 10 )
+z_index = -1
+
+[node name="Concrete76" parent="PastFactory/Building/Concrete" instance=ExtResource( 16 )]
+position = Vector2( -10485, -19268 )
 rotation = 1.57079
 scale = Vector2( 10, 10 )
 z_index = -1
@@ -1272,7 +1326,7 @@ z_index = -3
 z_index = -5
 
 [node name="BackgroundTile34x" type="Sprite" parent="FuturePrison/BG/Back"]
-position = Vector2( 4723, -564.999 )
+position = Vector2( -422, -5202 )
 scale = Vector2( -241.795, 10.7188 )
 texture = ExtResource( 12 )
 
@@ -1473,8 +1527,13 @@ position = Vector2( 16406, 7190 )
 [node name="Enemy3" parent="FuturePrison/Guard" instance=ExtResource( 17 )]
 position = Vector2( 6655, -2887 )
 
+[node name="TimeVoop" parent="FuturePrison" instance=ExtResource( 26 )]
+visible = false
+position = Vector2( 24915, 15726 )
+
 [node name="Jail" type="Node2D" parent="FuturePrison"]
 z_index = -4
+script = ExtResource( 25 )
 
 [node name="Node2D" type="Node2D" parent="FuturePrison/Jail"]
 
@@ -1482,9 +1541,10 @@ z_index = -4
 position = Vector2( 24397, 14559 )
 z_index = -4
 
-[node name="PashaNPC" parent="FuturePrison" instance=ExtResource( 19 )]
+[node name="PashaNPC" parent="FuturePrison/Jail" instance=ExtResource( 19 )]
 position = Vector2( 24837, 15659 )
-scale = Vector2( -1, 1 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
 
 [node name="Breakout" type="Area2D" parent="FuturePrison"]
 
@@ -1493,7 +1553,7 @@ position = Vector2( 23806, 15500 )
 shape = SubResource( 1 )
 
 [node name="TempPlayer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 22671, -10740 )
+position = Vector2( 22727, -11840 )
 
 [node name="Camera2D" type="Camera2D" parent="TempPlayer"]
 position = Vector2( 0, -662 )
@@ -1556,13 +1616,19 @@ position = Vector2( 23644, -7911 )
 rotation = 1.5708
 
 [node name="NaviOrb5" parent="HINTS" instance=ExtResource( 20 )]
+visible = false
 position = Vector2( 22726, -1530 )
 
 [node name="Node2D" type="Node2D" parent="HINTS"]
 position = Vector2( 0, -50000 )
 
 [node name="NaviOrb6" parent="HINTS/Node2D" instance=ExtResource( 20 )]
-position = Vector2( 15822, 4105 )
+position = Vector2( 16407, 4996 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NaviOrb9" parent="HINTS/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 15170, -9599 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 
@@ -1598,6 +1664,11 @@ shape = SubResource( 2 )
 [node name="ExitTimer" type="Timer" parent="ExitObject"]
 wait_time = 0.05
 
+[node name="Pause2" parent="." instance=ExtResource( 23 )]
+
+[connection signal="body_entered" from="FuturePrison/Breakout" to="FuturePrison/TimeVoop" method="VoopSeen"]
+[connection signal="body_entered" from="FuturePrison/Breakout" to="FuturePrison/Jail" method="HideNPC"]
 [connection signal="body_entered" from="FuturePrison/Breakout" to="FuturePrison/Jail/Node2D/LaserJail" method="Breakout"]
+[connection signal="body_exited" from="FuturePrison/Breakout" to="FuturePrison/TimeVoop" method="VoopSeen"]
 [connection signal="body_entered" from="ExitObject/Area2D" to="ExitObject" method="OnBodyEntered"]
 [connection signal="timeout" from="ExitObject/ExitTimer" to="ExitObject" method="OnExitTimerRunout"]
